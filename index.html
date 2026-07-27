@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>株式会社アメックス | 採用情報</title>
+  <title>株式会社アメックス | 採用情報 [修正版]</title>
   <style>
     * {
       box-sizing: border-box;
@@ -21,27 +21,23 @@
     .hero-container {
       position: relative;
       width: 100%;
-      min-height: 560px;
-      background-image: url('https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/80277585-2525-41db-818f-8b6ac43b37be/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
-      background-size: cover;
-      background-position: center right;
+      min-height: 560px; /* 縦の長さを確保 */
+      background-color: #fff; /* 白地に統一 */
       overflow: hidden;
     }
 
-    /* 背景写真と左側画像をスムーズに馴染ませる自然な白グラデーション */
-    .hero-overlay {
+    /* 新しい透過背景画像（高画質・小型） */
+    .hero-bg-small {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg, 
-        rgba(255,255,255,1) 0%, 
-        rgba(255,255,255,0.98) 35%, 
-        rgba(255,255,255,0.2) 52%, 
-        rgba(255,255,255,0) 70%
-      );
+      bottom: 20px; /* 下部中央 */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 35%; /* 元の画像の35%のサイズ（超縮小） */
+      max-width: 450px;
+      height: auto;
+      display: block;
+      mix-blend-mode: multiply; /* 白地に馴染ませる */
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1)); /* スタイリッシュな影 */
       z-index: 1;
     }
 
@@ -51,11 +47,12 @@
       z-index: 2;
       max-width: 1320px;
       margin: 0 auto;
-      padding: 20px 30px;
+      padding: 24px 30px 40px; /* 下部に余白を確保 */
       min-height: 560px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start; /* 上から順に配置 */
+      gap: 30px; /* 各セクションの間隔 */
     }
 
     /* --- HEADER (LINE / INDEED ボタン群) --- */
@@ -107,57 +104,104 @@
       transform: translateY(-2px);
     }
 
-    /* --- HERO BODY --- */
-    .hero-main {
+    /* --- TEXT AREA (上部の余白を埋める) --- */
+    .text-area {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      width: 100%;
-      margin-bottom: 15px;
+      flex-direction: column;
+      gap: 15px; /* テキスト間の間隔 */
     }
 
-    /* 左側画像（ロゴ＋創業65年＋キャッチコピー一体化画像） */
-    .left-img-box {
-      width: 520px;
-      max-width: 48%;
-    }
-
-    .left-img {
-      width: 100%;
-      height: auto;
+    /* ロゴ */
+    .logo-img-small {
+      height: 48px;
+      width: auto;
       display: block;
     }
 
-    /* 右下画像（年間休日4つのカード一体化画像） */
-    .right-cards-box {
-      width: 440px;
-      max-width: 42%;
-      margin-bottom: 10px;
+    /* 創業65年 */
+    .badge-years {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #00873c;
+      margin-bottom: 4px;
+    }
+    .badge-years span {
+      font-size: 2.1rem;
+      font-weight: 900;
     }
 
-    .right-cards-img {
+    /* メインコピー */
+    .main-copy {
+      font-size: 2.9rem;
+      font-weight: 900;
+      line-height: 1.25;
+      color: #111;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .main-copy .highlight {
+      color: #00873c;
+    }
+
+    /* サブコピー */
+    .sub-copy {
+      font-size: 1.05rem;
+      color: #333;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    /* 右側 4つのカード画像（年間休日4つのカード一体化画像） */
+    .cards-img-box {
+      width: 440px;
+      max-width: 45%;
+      margin-top: 15px;
+      align-self: flex-end; /* 右下寄せ */
+    }
+
+    .cards-img {
       width: 100%;
       height: auto;
       display: block;
       filter: drop-shadow(0 6px 18px rgba(0,0,0,0.12));
     }
 
+    /* --- INFO AREA (下部の余白を補足情報で埋める) --- */
+    .info-area {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 40px; /* カード画像との間隔 */
+    }
+
+    .info-text {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
     /* レスポンシブ対応 */
     @media (max-width: 960px) {
-      .hero-overlay {
-        background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0.2) 100%);
-      }
       .header-area {
         justify-content: center;
       }
-      .hero-main {
-        flex-direction: column;
-        align-items: flex-start;
+      .hero-content {
         gap: 20px;
       }
-      .left-img-box, .right-cards-box {
+      .main-copy {
+        font-size: 2.1rem;
+      }
+      .sub-copy {
+        font-size: 0.95rem;
+      }
+      .cards-img-box {
         width: 100%;
         max-width: 100%;
+        align-self: flex-start;
+      }
+      .hero-bg-small {
+        width: 60%; /* モバイルは少し大きく */
       }
     }
   </style>
@@ -165,7 +209,8 @@
 <body>
 
   <div class="hero-container">
-    <div class="hero-overlay"></div>
+    <img class="hero-bg-small" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/fe0fa12a-2f8d-4dfe-8ccd-93a0095e0c63/kaikaai65.png" alt="AMECS 人二人 透過背景">
+
     <div class="hero-content">
       
       <header class="header-area">
@@ -175,16 +220,34 @@
         </div>
       </header>
 
-      <div class="hero-main">
+      <div class="text-area">
+        <img class="logo-img-small" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/69d2337e-f65d-42f5-a37c-a2e630f9da90/__.jpg" alt="AMECS LOGO">
         
-        <div class="left-img-box">
-          <img class="left-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/8ae1a8ff-613b-4f6c-a724-ba9d7aeb3e94/65nenn_kai_.png" alt="AMECS 創業65年 宮崎の街の快適な生活を創造し、社会に貢献する。">
-        </div>
+        <div class="badge-years">創業 <span>65</span> 年</div>
+        
+        <h1 class="main-copy">
+          宮崎の街の快適な<br>
+          <span class="highlight">生活</span>を<span class="highlight">創造</span>し、<br>
+          <span class="highlight">社会</span>に<span class="highlight">貢献</span>する。
+        </h1>
+        
+        <p class="sub-copy">
+          公共施設から一般住宅まで。<br>
+          地域のライフラインを支え続ける総合設備会社です。
+        </p>
+      </div>
 
-        <div class="right-cards-box">
-          <img class="right-cards-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/466d96b8-fc2e-42b6-af4f-eb895402bb2c/nennkann_.png" alt="年間休日123日 完全週休2日制 未経験歓迎 資格取得支援">
-        </div>
+      <div class="cards-img-box">
+        <img class="cards-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/466d96b8-fc2e-42b6-af4f-eb895402bb2c/nennkann_.png" alt="年間休日123日 完全週休2日制 未経験歓迎 資格取得支援">
+      </div>
 
+      <div class="info-area">
+        <p class="info-text">
+          宮崎県全域対応。電気設備・空調設備・給排水設備など、あらゆる設備工事をワンストップで。
+        </p>
+        <p class="info-text">
+          お気軽にご相談ください。TEL 0985-xx-xxxx
+        </p>
       </div>
 
     </div>
