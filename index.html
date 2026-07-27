@@ -12,12 +12,12 @@
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: #111;
       background-color: #fff;
+      color: #111;
       line-height: 1.4;
     }
 
-    /* --- HERO CONTAINER --- */
+    /* --- HERO MAIN CONTAINER --- */
     .hero-container {
       position: relative;
       width: 100%;
@@ -28,7 +28,7 @@
       overflow: hidden;
     }
 
-    /* 左側の自然な白い透過グラデーション */
+    /* 背景写真と左側画像をスムーズに馴染ませる自然な白グラデーション */
     .hero-overlay {
       position: absolute;
       top: 0;
@@ -37,183 +37,127 @@
       height: 100%;
       background: linear-gradient(
         90deg, 
-        rgba(255,255,255,0.98) 0%, 
-        rgba(255,255,255,0.92) 32%, 
-        rgba(255,255,255,0.3) 52%, 
+        rgba(255,255,255,1) 0%, 
+        rgba(255,255,255,0.98) 35%, 
+        rgba(255,255,255,0.2) 52%, 
         rgba(255,255,255,0) 70%
       );
       z-index: 1;
     }
 
+    /* コンテンツ配置レイヤー */
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 1280px;
+      max-width: 1320px;
       margin: 0 auto;
-      padding: 24px 30px;
+      padding: 20px 30px;
       min-height: 560px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    /* --- HEADER (ロゴ・電話・ボタン) --- */
+    /* --- HEADER (LINE / INDEED ボタン群) --- */
     .header-area {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       width: 100%;
+      padding-top: 5px;
     }
 
-    .logo-tel-group {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    /* 拡大・フチなし透過ロゴ（下地に馴染ませる） */
-    .logo-img {
-      height: 62px;
-      width: auto;
-      mix-blend-mode: multiply;
-      display: block;
-    }
-
-    /* 電話番号 */
-    .header-tel {
-      font-size: 1.55rem;
-      font-weight: 900;
-      color: #111;
-      letter-spacing: 0.03em;
-      white-space: nowrap;
-    }
-
-    .header-tel span {
-      font-size: 1.2rem;
-      margin-right: 4px;
-    }
-
-    /* 横広で大型化したCVボタン */
     .btn-group {
       display: flex;
       gap: 16px;
     }
 
+    /* 大型＆スタイリッシュなCVボタン */
     .btn-line {
       background-color: #00b900;
       color: #fff;
-      padding: 14px 32px;
+      padding: 13px 32px;
       border-radius: 35px;
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 12px rgba(0,185,0,0.3);
-      transition: transform 0.2s;
+      box-shadow: 0 4px 14px rgba(0, 185, 0, 0.35);
+      transition: all 0.2s ease;
     }
 
     .btn-indeed {
       background-color: #0056b3;
       color: #fff;
-      padding: 14px 36px;
+      padding: 13px 36px;
       border-radius: 35px;
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 12px rgba(0,86,179,0.3);
-      transition: transform 0.2s;
+      box-shadow: 0 4px 14px rgba(0, 86, 179, 0.35);
+      transition: all 0.2s ease;
     }
 
-    /* --- MAIN AREA --- */
+    .btn-line:hover, .btn-indeed:hover {
+      transform: translateY(-2px);
+    }
+
+    /* --- HERO BODY --- */
     .hero-main {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       width: 100%;
-      margin-top: 15px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
-    /* 左側テキスト群（大きくしたロゴの直下に配置） */
-    .catch-box {
-      max-width: 580px;
+    /* 左側画像（ロゴ＋創業65年＋キャッチコピー一体化画像） */
+    .left-img-box {
+      width: 520px;
+      max-width: 48%;
     }
 
-    .badge-wrap {
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: #00873c;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .badge-wrap span {
-      font-size: 2.3rem;
-      font-weight: 900;
-    }
-
-    .title-main {
-      font-size: 3.1rem;
-      font-weight: 900;
-      line-height: 1.2;
-      color: #111;
-      margin-bottom: 18px;
-      letter-spacing: -0.02em;
-    }
-
-    .title-main .green {
-      color: #00873c;
-    }
-
-    .desc-text {
-      font-size: 1.25rem;
-      color: #222;
-      line-height: 1.5;
-      font-weight: 800;
-    }
-
-    /* 右側 4つのカード画像（ご指定の1枚画像へ差し替え） */
-    .cards-img-box {
-      width: 440px;
-      max-width: 45%;
-      margin-bottom: 10px;
-    }
-
-    .cards-img {
+    .left-img {
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.12));
     }
 
-    /* Responsive */
+    /* 右下画像（年間休日4つのカード一体化画像） */
+    .right-cards-box {
+      width: 440px;
+      max-width: 42%;
+      margin-bottom: 10px;
+    }
+
+    .right-cards-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.12));
+    }
+
+    /* レスポンシブ対応 */
     @media (max-width: 960px) {
+      .hero-overlay {
+        background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0.2) 100%);
+      }
       .header-area {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        justify-content: center;
       }
       .hero-main {
         flex-direction: column;
         align-items: flex-start;
-        gap: 25px;
+        gap: 20px;
       }
-      .cards-img-box {
+      .left-img-box, .right-cards-box {
         width: 100%;
         max-width: 100%;
-      }
-      .title-main {
-        font-size: 2.2rem;
-      }
-      .desc-text {
-        font-size: 1.05rem;
       }
     }
   </style>
@@ -225,10 +169,6 @@
     <div class="hero-content">
       
       <header class="header-area">
-        <div class="logo-tel-group">
-          <img class="logo-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/69d2337e-f65d-42f5-a37c-a2e630f9da90/__.jpg" alt="AMECS">
-          <div class="header-tel"><span>TEL</span>0985-24-1535</div>
-        </div>
         <div class="btn-group">
           <a href="#" class="btn-line">LINEで相談する</a>
           <a href="#" class="btn-indeed">Indeedで応募する &rarr;</a>
@@ -237,21 +177,12 @@
 
       <div class="hero-main">
         
-        <div class="catch-box">
-          <div class="badge-wrap">創業 <span>65</span> 年</div>
-          <h1 class="title-main">
-            宮崎の快適な<br>
-            <span class="green">生活</span>を<span class="green">創造</span>し、<br>
-            <span class="green">社会</span>に<span class="green">貢献</span>する。
-          </h1>
-          <p class="desc-text">
-            公共施設から一般住宅まで。<br>
-            地域のライフラインを支え続ける総合設備会社です。
-          </p>
+        <div class="left-img-box">
+          <img class="left-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/8ae1a8ff-613b-4f6c-a724-ba9d7aeb3e94/65nenn_kai_.png" alt="AMECS 創業65年 宮崎の街の快適な生活を創造し、社会に貢献する。">
         </div>
 
-        <div class="cards-img-box">
-          <img class="cards-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/466d96b8-fc2e-42b6-af4f-eb895402bb2c/nennkann_.png" alt="年間休日123日 完全週休2日制 未経験歓迎 資格取得支援">
+        <div class="right-cards-box">
+          <img class="right-cards-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/466d96b8-fc2e-42b6-af4f-eb895402bb2c/nennkann_.png" alt="年間休日123日 完全週休2日制 未経験歓迎 資格取得支援">
         </div>
 
       </div>
