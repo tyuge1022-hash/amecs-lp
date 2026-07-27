@@ -14,124 +14,53 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: #fff;
       color: #111;
-      line-height: 1.35;
+      line-height: 1.4;
     }
 
-    /* --- HERO CONTAINER (1920x960比率・高さをコンパクトに設定) --- */
+    /* --- メインコンテナ（左右分離 ＆ ゆったり高さ600px） --- */
     .hero-container {
-      position: relative;
       width: 100%;
-      height: 460px; /* 高さを狭くコンパクトに固定 */
-      max-height: 50vh;
-      background-image: url('https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/80277585-2525-41db-818f-8b6ac43b37be/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
-      background-size: cover;
-      background-position: right 10% center; /* 二人が綺麗に画面内に収まる配置 */
-      background-repeat: no-repeat;
+      height: 600px; /* ゆったりとした高さ設定 */
+      display: flex;
+      background-color: #fff;
       overflow: hidden;
-    }
-
-    /* 左側テキスト用 グラデーションオーバーレイ */
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg, 
-        rgba(255,255,255,1) 0%, 
-        rgba(255,255,255,0.95) 38%, 
-        rgba(255,255,255,0.2) 58%, 
-        rgba(255,255,255,0) 75%
-      );
-      z-index: 1;
-    }
-
-    /* レイアウト構造（上部余白を極限まで排除） */
-    .hero-content {
       position: relative;
-      z-index: 2;
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 10px 30px 15px; /* 上余白をほぼ無しに設定 */
+    }
+
+    /* --- 左側：文字エリア（純白） --- */
+    .hero-left {
+      width: 48%;
       height: 100%;
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* --- HEADER (ロゴ削除・右寄せCVボタンのみ) --- */
-    .header-area {
-      display: flex;
-      justify-content: flex-end; /* 右寄せ */
-      align-items: center;
-      width: 100%;
-      padding-top: 5px;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 12px;
-    }
-
-    .btn-line {
-      background-color: #00b900;
-      color: #fff;
-      padding: 10px 26px;
-      border-radius: 30px;
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      box-shadow: 0 3px 10px rgba(0, 185, 0, 0.3);
-    }
-
-    .btn-indeed {
-      background-color: #0056b3;
-      color: #fff;
-      padding: 10px 28px;
-      border-radius: 30px;
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      box-shadow: 0 3px 10px rgba(0, 86, 179, 0.3);
-    }
-
-    /* --- HERO MAIN AREA --- */
-    .hero-main {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      width: 100%;
-      margin-bottom: 5px;
-    }
-
-    /* 左側キャッチコピー */
-    .catch-box {
-      max-width: 520px;
+      justify-content: center;
+      padding: 40px 0 40px 50px;
+      z-index: 2;
     }
 
     .badge-wrap {
-      font-size: 1.2rem;
+      font-size: 1.35rem;
       font-weight: 900;
       color: #00873c;
-      margin-bottom: 4px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .badge-wrap span {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-weight: 900;
+      line-height: 1;
     }
 
     .title-main {
-      font-size: 2.6rem;
+      font-size: 3.0rem;
       font-weight: 900;
-      line-height: 1.2;
+      line-height: 1.25;
       color: #111;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
       letter-spacing: -0.02em;
     }
 
@@ -140,43 +69,107 @@
     }
 
     .desc-text {
-      font-size: 1.0rem;
-      color: #222;
-      line-height: 1.5;
+      font-size: 1.15rem;
+      color: #333;
+      line-height: 1.6;
       font-weight: 700;
     }
 
-    /* 右下カード画像 */
+    /* --- 右側：写真エリア（グラデーションなし・高画質） --- */
+    .hero-right {
+      width: 52%;
+      height: 100%;
+      position: relative;
+      background-image: url('https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/80277585-2525-41db-818f-8b6ac43b37be/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    /* --- 右上：CVボタン群 --- */
+    .header-buttons {
+      position: absolute;
+      top: 24px;
+      right: 40px;
+      z-index: 10;
+      display: flex;
+      gap: 14px;
+    }
+
+    .btn-line {
+      background-color: #00b900;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 35px;
+      font-weight: 800;
+      font-size: 1.0rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 185, 0, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .btn-indeed {
+      background-color: #0056b3;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 35px;
+      font-weight: 800;
+      font-size: 1.0rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .btn-line:hover, .btn-indeed:hover {
+      transform: translateY(-2px);
+    }
+
+    /* --- 右下：年間休日カード画像 --- */
     .cards-img-box {
-      width: 380px;
-      max-width: 40%;
+      position: absolute;
+      bottom: 24px;
+      right: 30px;
+      width: 420px;
+      max-width: 85%;
+      z-index: 5;
     }
 
     .cards-img {
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.25));
     }
 
-    /* モバイル対応 */
-    @media (max-width: 900px) {
+    /* --- モバイル対応（スマホ画面では縦並び） --- */
+    @media (max-width: 960px) {
       .hero-container {
-        height: auto;
-        min-height: 480px;
-        background-position: center right;
-      }
-      .hero-main {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+        height: auto;
       }
-      .cards-img-box {
+      .hero-left {
         width: 100%;
-        max-width: 100%;
+        padding: 80px 24px 30px;
+      }
+      .hero-right {
+        width: 100%;
+        height: 380px;
+      }
+      .header-buttons {
+        top: 16px;
+        right: 16px;
       }
       .title-main {
-        font-size: 2.0rem;
+        font-size: 2.2rem;
+      }
+      .cards-img-box {
+        bottom: 16px;
+        right: 16px;
+        width: 320px;
       }
     }
   </style>
@@ -184,38 +177,31 @@
 <body>
 
   <div class="hero-container">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      
-      <header class="header-area">
-        <div class="btn-group">
-          <a href="#" class="btn-line">LINEで相談する</a>
-          <a href="#" class="btn-indeed">Indeedで応募する &rarr;</a>
-        </div>
-      </header>
-
-      <div class="hero-main">
-        
-        <div class="catch-box">
-          <div class="badge-wrap">創業 <span>65</span> 年</div>
-          <h1 class="title-main">
-            宮崎の街の快適な<br>
-            <span class="green">生活</span>を<span class="green">創造</span>し、<br>
-            <span class="green">社会</span>に<span class="green">貢献</span>する。
-          </h1>
-          <p class="desc-text">
-            公共施設から一般住宅まで。<br>
-            地域のライフラインを支え続ける総合設備会社です。
-          </p>
-        </div>
-
-        <div class="cards-img-box">
-          <img class="cards-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/466d96b8-fc2e-42b6-af4f-eb895402bb2c/nennkann_.png" alt="年間休日123日 完全週休2日制 未経験歓迎 資格取得支援">
-        </div>
-
-      </div>
-
+    
+    <div class="header-buttons">
+      <a href="#" class="btn-line">LINEで相談する</a>
+      <a href="#" class="btn-indeed">Indeedで応募する &rarr;</a>
     </div>
+
+    <div class="hero-left">
+      <div class="badge-wrap">創業 <span>65</span> 年</div>
+      <h1 class="title-main">
+        宮崎の街の快適な<br>
+        <span class="green">生活</span>を<span class="green">創造</span>し、<br>
+        <span class="green">社会</span>に<span class="green">貢献</span>する。
+      </h1>
+      <p class="desc-text">
+        公共施設から一般住宅まで。<br>
+        地域のライフラインを支え続ける総合設備会社です。
+      </p>
+    </div>
+
+    <div class="hero-right">
+      <div class="cards-img-box">
+        <img class="cards-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/466d96b8-fc2e-42b6-af4f-eb895402bb2c/nennkann_.png" alt="年間休日123日 完全週休2日制 未経験歓迎 資格取得支援">
+      </div>
+    </div>
+
   </div>
 
 </body>
