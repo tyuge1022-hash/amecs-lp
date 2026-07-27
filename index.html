@@ -17,76 +17,59 @@
       line-height: 1.4;
     }
 
-    /* --- メインコンテナ（左右分離 ＆ ゆったり高さ600px） --- */
+    /* --- HERO CONTAINER (高さ600px・背景に人物写真) --- */
     .hero-container {
+      position: relative;
       width: 100%;
-      height: 600px; /* ゆったりとした高さ設定 */
-      display: flex;
-      background-color: #fff;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* --- 左側：文字エリア（純白） --- */
-    .hero-left {
-      width: 48%;
-      height: 100%;
-      background-color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 40px 0 40px 50px;
-      z-index: 2;
-    }
-
-    .badge-wrap {
-      font-size: 1.35rem;
-      font-weight: 900;
-      color: #00873c;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .badge-wrap span {
-      font-size: 2.2rem;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .title-main {
-      font-size: 3.0rem;
-      font-weight: 900;
-      line-height: 1.25;
-      color: #111;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-
-    .title-main .green {
-      color: #00873c;
-    }
-
-    .desc-text {
-      font-size: 1.15rem;
-      color: #333;
-      line-height: 1.6;
-      font-weight: 700;
-    }
-
-    /* --- 右側：写真エリア（グラデーションなし・高画質） --- */
-    .hero-right {
-      width: 52%;
-      height: 100%;
-      position: relative;
+      height: 600px;
       background-image: url('https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/80277585-2525-41db-818f-8b6ac43b37be/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
       background-size: cover;
-      background-position: center center;
+      background-position: right center;
       background-repeat: no-repeat;
+      overflow: hidden;
     }
 
-    /* --- 右上：CVボタン群 --- */
+    /* 左側の白から右側の写真へ「自然に溶け込む」透かしグラデーション */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg, 
+        rgba(255,255,255,1) 0%, 
+        rgba(255,255,255,1) 42%, 
+        rgba(255,255,255,0.8) 50%, 
+        rgba(255,255,255,0) 65%
+      );
+      z-index: 1;
+    }
+
+    /* 全体レイアウト */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1380px;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    /* 左側：ロゴ＆テキスト画像（kaikaai65.png） */
+    .hero-left-img {
+      height: 82%;
+      width: auto;
+      max-width: 48%;
+      object-fit: contain;
+      object-position: left center;
+      display: block;
+    }
+
+    /* 右上：CVボタン群 */
     .header-buttons {
       position: absolute;
       top: 24px;
@@ -128,13 +111,13 @@
       transform: translateY(-2px);
     }
 
-    /* --- 右下：年間休日カード画像 --- */
+    /* 右下：年間休日カード画像 */
     .cards-img-box {
       position: absolute;
       bottom: 24px;
-      right: 30px;
-      width: 420px;
-      max-width: 85%;
+      right: 40px;
+      width: 400px;
+      max-width: 80%;
       z-index: 5;
     }
 
@@ -142,34 +125,35 @@
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.25));
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.2));
     }
 
-    /* --- モバイル対応（スマホ画面では縦並び） --- */
+    /* スマホ対応 */
     @media (max-width: 960px) {
       .hero-container {
-        flex-direction: column;
         height: auto;
+        min-height: 500px;
       }
-      .hero-left {
-        width: 100%;
-        padding: 80px 24px 30px;
+      .hero-content {
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px 20px 30px;
       }
-      .hero-right {
-        width: 100%;
-        height: 380px;
+      .hero-left-img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
       }
       .header-buttons {
         top: 16px;
         right: 16px;
       }
-      .title-main {
-        font-size: 2.2rem;
-      }
       .cards-img-box {
-        bottom: 16px;
-        right: 16px;
-        width: 320px;
+        position: relative;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        margin-top: 20px;
       }
     }
   </style>
@@ -177,26 +161,16 @@
 <body>
 
   <div class="hero-container">
-    
+    <div class="hero-overlay"></div>
+
     <div class="header-buttons">
       <a href="#" class="btn-line">LINEで相談する</a>
       <a href="#" class="btn-indeed">Indeedで応募する &rarr;</a>
     </div>
 
-    <div class="hero-left">
-      <div class="badge-wrap">創業 <span>65</span> 年</div>
-      <h1 class="title-main">
-        宮崎の街の快適な<br>
-        <span class="green">生活</span>を<span class="green">創造</span>し、<br>
-        <span class="green">社会</span>に<span class="green">貢献</span>する。
-      </h1>
-      <p class="desc-text">
-        公共施設から一般住宅まで。<br>
-        地域のライフラインを支え続ける総合設備会社です。
-      </p>
-    </div>
+    <div class="hero-content">
+      <img class="hero-left-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/fe0fa12a-2f8d-4dfe-8ccd-93a0095e0c63/kaikaai65.png" alt="AMECS 創業65年 宮崎の街の快適な生活を創造し、社会に貢献する。">
 
-    <div class="hero-right">
       <div class="cards-img-box">
         <img class="cards-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/466d96b8-fc2e-42b6-af4f-eb895402bb2c/nennkann_.png" alt="年間休日123日 完全週休2日制 未経験歓迎 資格取得支援">
       </div>
