@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>株式会社アメックス | 採用情報 [修正版]</title>
+  <title>株式会社アメックス | 採用情報</title>
   <style>
     * {
       box-sizing: border-box;
@@ -17,191 +17,173 @@
       line-height: 1.4;
     }
 
-    /* --- HERO MAIN CONTAINER --- */
+    /* メインコンテナ（背景画像配置） */
     .hero-container {
       position: relative;
       width: 100%;
-      min-height: 560px; /* 縦の長さを確保 */
-      background-color: #fff; /* 白地に統一 */
+      min-height: 520px;
+      background-image: url('https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/80277585-2525-41db-818f-8b6ac43b37be/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
+      background-size: cover;
+      background-position: center right;
       overflow: hidden;
     }
 
-    /* 新しい透過背景画像（高画質・小型） */
-    .hero-bg-small {
+    /* 自然な白グラデーション（左側を白くして文字をくっきり見せる） */
+    .hero-overlay {
       position: absolute;
-      bottom: 20px; /* 下部中央 */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 35%; /* 元の画像の35%のサイズ（超縮小） */
-      max-width: 450px;
-      height: auto;
-      display: block;
-      mix-blend-mode: multiply; /* 白地に馴染ませる */
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1)); /* スタイリッシュな影 */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg, 
+        rgba(255,255,255,1) 0%, 
+        rgba(255,255,255,0.95) 35%, 
+        rgba(255,255,255,0.2) 55%, 
+        rgba(255,255,255,0) 75%
+      );
       z-index: 1;
     }
 
-    /* コンテンツ配置レイヤー */
+    /* レイアウト構造 */
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 1320px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 24px 30px 40px; /* 下部に余白を確保 */
-      min-height: 560px;
+      padding: 20px 30px;
+      min-height: 520px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; /* 上から順に配置 */
-      gap: 30px; /* 各セクションの間隔 */
+      justify-content: space-between;
     }
 
-    /* --- HEADER (LINE / INDEED ボタン群) --- */
+    /* --- HEADER (ロゴ ＆ CVボタン) --- */
     .header-area {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding-top: 5px;
+    }
+
+    /* 潰れ・変形を完全に防止したロゴ */
+    .logo-img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      display: block;
     }
 
     .btn-group {
       display: flex;
-      gap: 16px;
+      gap: 12px;
     }
 
-    /* 大型＆スタイリッシュなCVボタン */
     .btn-line {
       background-color: #00b900;
       color: #fff;
-      padding: 13px 32px;
-      border-radius: 35px;
+      padding: 10px 24px;
+      border-radius: 30px;
       font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 14px rgba(0, 185, 0, 0.35);
-      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 185, 0, 0.25);
     }
 
     .btn-indeed {
       background-color: #0056b3;
       color: #fff;
-      padding: 13px 36px;
-      border-radius: 35px;
+      padding: 10px 28px;
+      border-radius: 30px;
       font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 14px rgba(0, 86, 179, 0.35);
-      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 86, 179, 0.25);
     }
 
-    .btn-line:hover, .btn-indeed:hover {
-      transform: translateY(-2px);
-    }
-
-    /* --- TEXT AREA (上部の余白を埋める) --- */
-    .text-area {
+    /* --- MAIN AREA --- */
+    .hero-main {
       display: flex;
-      flex-direction: column;
-      gap: 15px; /* テキスト間の間隔 */
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
-    /* ロゴ */
-    .logo-img-small {
-      height: 48px;
-      width: auto;
-      display: block;
+    /* 左側テキスト群 */
+    .catch-box {
+      max-width: 520px;
     }
 
-    /* 創業65年 */
-    .badge-years {
-      font-size: 1.35rem;
+    .badge-wrap {
+      font-size: 1.25rem;
       font-weight: 800;
       color: #00873c;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
-    .badge-years span {
-      font-size: 2.1rem;
+
+    .badge-wrap span {
+      font-size: 1.9rem;
       font-weight: 900;
     }
 
-    /* メインコピー */
-    .main-copy {
-      font-size: 2.9rem;
+    .title-main {
+      font-size: 2.7rem;
       font-weight: 900;
       line-height: 1.25;
       color: #111;
-      margin: 0;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
-    .main-copy .highlight {
+
+    .title-main .green {
       color: #00873c;
     }
 
-    /* サブコピー */
-    .sub-copy {
+    .desc-text {
       font-size: 1.05rem;
-      color: #333;
-      line-height: 1.6;
-      font-weight: 600;
+      color: #222;
+      line-height: 1.5;
+      font-weight: 700;
     }
 
-    /* 右側 4つのカード画像（年間休日4つのカード一体化画像） */
+    /* 右下カード画像 */
     .cards-img-box {
-      width: 440px;
-      max-width: 45%;
-      margin-top: 15px;
-      align-self: flex-end; /* 右下寄せ */
+      width: 400px;
+      max-width: 42%;
+      margin-bottom: 5px;
     }
 
     .cards-img {
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.12));
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
     }
 
-    /* --- INFO AREA (下部の余白を補足情報で埋める) --- */
-    .info-area {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 40px; /* カード画像との間隔 */
-    }
-
-    .info-text {
-      font-size: 0.88rem;
-      color: #555;
-      line-height: 1.6;
-      font-weight: 600;
-    }
-
-    /* レスポンシブ対応 */
-    @media (max-width: 960px) {
+    /* モバイル対応 */
+    @media (max-width: 860px) {
       .header-area {
-        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
       }
-      .hero-content {
+      .hero-main {
+        flex-direction: column;
+        align-items: flex-start;
         gap: 20px;
-      }
-      .main-copy {
-        font-size: 2.1rem;
-      }
-      .sub-copy {
-        font-size: 0.95rem;
       }
       .cards-img-box {
         width: 100%;
         max-width: 100%;
-        align-self: flex-start;
       }
-      .hero-bg-small {
-        width: 60%; /* モバイルは少し大きく */
+      .title-main {
+        font-size: 2.0rem;
       }
     }
   </style>
@@ -209,45 +191,36 @@
 <body>
 
   <div class="hero-container">
-    <img class="hero-bg-small" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/fe0fa12a-2f8d-4dfe-8ccd-93a0095e0c63/kaikaai65.png" alt="AMECS 人二人 透過背景">
-
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       
       <header class="header-area">
+        <img class="logo-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/69d2337e-f65d-42f5-a37c-a2e630f9da90/__.jpg" alt="AMECS">
         <div class="btn-group">
           <a href="#" class="btn-line">LINEで相談する</a>
           <a href="#" class="btn-indeed">Indeedで応募する &rarr;</a>
         </div>
       </header>
 
-      <div class="text-area">
-        <img class="logo-img-small" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/69d2337e-f65d-42f5-a37c-a2e630f9da90/__.jpg" alt="AMECS LOGO">
+      <div class="hero-main">
         
-        <div class="badge-years">創業 <span>65</span> 年</div>
-        
-        <h1 class="main-copy">
-          宮崎の街の快適な<br>
-          <span class="highlight">生活</span>を<span class="highlight">創造</span>し、<br>
-          <span class="highlight">社会</span>に<span class="highlight">貢献</span>する。
-        </h1>
-        
-        <p class="sub-copy">
-          公共施設から一般住宅まで。<br>
-          地域のライフラインを支え続ける総合設備会社です。
-        </p>
-      </div>
+        <div class="catch-box">
+          <div class="badge-wrap">創業 <span>65</span> 年</div>
+          <h1 class="title-main">
+            宮崎の街の快適な<br>
+            <span class="green">生活</span>を<span class="green">創造</span>し、<br>
+            <span class="green">社会</span>に<span class="green">貢献</span>する。
+          </h1>
+          <p class="desc-text">
+            公共施設から一般住宅まで。<br>
+            地域のライフラインを支え続ける総合設備会社です。
+          </p>
+        </div>
 
-      <div class="cards-img-box">
-        <img class="cards-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/466d96b8-fc2e-42b6-af4f-eb895402bb2c/nennkann_.png" alt="年間休日123日 完全週休2日制 未経験歓迎 資格取得支援">
-      </div>
+        <div class="cards-img-box">
+          <img class="cards-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/466d96b8-fc2e-42b6-af4f-eb895402bb2c/nennkann_.png" alt="年間休日123日 完全週休2日制 未経験歓迎 資格取得支援">
+        </div>
 
-      <div class="info-area">
-        <p class="info-text">
-          宮崎県全域対応。電気設備・空調設備・給排水設備など、あらゆる設備工事をワンストップで。
-        </p>
-        <p class="info-text">
-          お気軽にご相談ください。TEL 0985-xx-xxxx
-        </p>
       </div>
 
     </div>
