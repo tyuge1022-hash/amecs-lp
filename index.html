@@ -17,52 +17,50 @@
       line-height: 1.4;
     }
 
-    /* --- HERO CONTAINER (右側にのみ写真を配置) --- */
+    /* --- HERO CONTAINER (左右2列レイアウト) --- */
     .hero-container {
       position: relative;
       width: 100%;
       height: 480px;
-      background-color: #fff; /* 全体ベースは白 */
-      /* 右側に男性二人の写真を配置 */
-      background-image: url('https://raw.githubusercontent.com/tyuge1022-hash/amecs-lp/e552bea89289769fba5a719d2686dab6d57e1f8a/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
-      background-size: contain; 
-      background-position: right center;
-      background-repeat: no-repeat;
+      background-color: #fff;
+      display: flex;
       overflow: hidden;
     }
 
-    /* 全体レイアウト */
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1400px;
+    /* 左側エリア：100%完全な白背景（透けを完全にシャットアウト） */
+    .hero-left {
+      width: 50%;
       height: 100%;
-      margin: 0 auto;
+      background-color: #ffffff;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0 30px;
+      justify-content: flex-end;
+      padding: 20px 40px 20px 20px;
+      z-index: 2;
     }
 
-    /* 左側画像の枠組み（背景写真を白でしっかり隠す） */
-    .hero-left-wrapper {
-      background-color: #ffffff; /* これで後ろの男性写真が透けなくなります */
-      padding: 10px;
-      border-radius: 8px;
-      display: inline-block;
-      z-index: 3;
-    }
-
-    /* 左側画像（PAFECT TOP.png） */
     .hero-left-img {
-      height: auto;
-      width: 480px; /* 見やすい適正サイズ */
+      max-height: 90%;
       max-width: 100%;
+      width: auto;
+      height: auto;
       object-fit: contain;
       display: block;
     }
 
-    /* 右上：CVボタン群（LINE/Indeed帯デザイン） */
+    /* 右側エリア：男性二人の写真 */
+    .hero-right {
+      width: 50%;
+      height: 100%;
+      background-image: url('https://raw.githubusercontent.com/tyuge1022-hash/amecs-lp/e552bea89289769fba5a719d2686dab6d57e1f8a/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 右上：CVボタン群 */
     .header-buttons {
       position: absolute;
       top: 20px;
@@ -73,7 +71,7 @@
       align-items: center;
     }
 
-    /* LINEボタン（緑グラデーション・不透明感あり） */
+    /* LINEボタン（緑グラデーション・帯デザイン） */
     .btn-line {
       background: linear-gradient(180deg, rgba(50, 205, 50, 0.95) 0%, rgba(0, 160, 0, 0.98) 100%);
       color: #fff;
@@ -88,7 +86,7 @@
       justify-content: center;
       box-shadow: 0 4px 10px rgba(0, 150, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s;
     }
 
     .btn-line .sub-text {
@@ -120,31 +118,28 @@
       gap: 8px;
       box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s;
     }
 
     .btn-line:hover, .btn-indeed:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
     }
 
-    /* スマホ対応（レスポンシブ） */
+    /* スマホ対応 */
     @media (max-width: 960px) {
       .hero-container {
-        height: auto;
-        min-height: 450px;
-        background-size: cover;
-      }
-      .hero-content {
         flex-direction: column;
+        height: auto;
+      }
+      .hero-left, .hero-right {
+        width: 100%;
+      }
+      .hero-left {
+        padding: 80px 20px 30px;
         justify-content: center;
-        padding: 70px 15px 20px;
       }
-      .hero-left-wrapper {
-        width: 100%;
-      }
-      .hero-left-img {
-        width: 100%;
+      .hero-right {
+        height: 300px;
       }
       .header-buttons {
         top: 12px;
@@ -167,11 +162,11 @@
       </a>
     </div>
 
-    <div class="hero-content">
-      <div class="hero-left-wrapper">
-        <img class="hero-left-img" src="https://raw.githubusercontent.com/tyuge1022-hash/amecs-lp/d24b1ad864f9be497345479558f1a4565329f65d/PAFECT%20TOP.png" alt="株式会社アメックス 創業65年 宮崎の街の快適な生活を創造し、社会に貢献する。">
-      </div>
+    <div class="hero-left">
+      <img class="hero-left-img" src="https://raw.githubusercontent.com/tyuge1022-hash/amecs-lp/d24b1ad864f9be497345479558f1a4565329f65d/PAFECT%20TOP.png" alt="株式会社アメックス 創業65年">
     </div>
+
+    <div class="hero-right"></div>
 
   </div>
 
