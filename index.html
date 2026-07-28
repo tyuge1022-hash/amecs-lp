@@ -3,30 +3,455 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>株式会社アメックス</title>
+
+  <title>株式会社アメックス｜採用情報</title>
+
   <style>
+    /* =========================
+       基本設定
+    ========================= */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+
+    :root {
+      --green: #007a36;
+      --green-dark: #005b29;
+      --black: #111111;
+      --gray: #f4f7f5;
+      --border: rgba(0, 122, 54, 0.14);
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      background: #ffffff;
+      color: var(--black);
+      font-family:
+        "Noto Sans JP",
+        "Yu Gothic",
+        "Hiragino Kaku Gothic ProN",
+        Meiryo,
+        sans-serif;
+      overflow-x: hidden;
+    }
+
     img {
-      max-width: 100%;
-      height: auto;
       display: block;
+      max-width: 100%;
+    }
+
+    /* =========================
+       ページ全体
+    ========================= */
+    .page {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* =========================
+       TOP画像
+    ========================= */
+    .hero {
+      width: 100%;
+      background: #ffffff;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* =========================
+       年間休日などのポイント
+    ========================= */
+    .benefits {
+      position: relative;
+      padding: 55px 5vw 90px;
+      background:
+        radial-gradient(
+          circle at top center,
+          rgba(0, 122, 54, 0.06),
+          transparent 38%
+        ),
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f5f8f6 100%
+        );
+    }
+
+    .benefits-inner {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+    }
+
+    .benefits-title-wrap {
+      margin-bottom: 35px;
+      text-align: center;
+    }
+
+    .benefits-subtitle {
+      margin-bottom: 10px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+    }
+
+    .benefits-title {
+      font-size: clamp(25px, 3vw, 42px);
+      line-height: 1.4;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .benefits-title span {
+      color: var(--green);
+    }
+
+    .benefits-description {
+      margin-top: 14px;
+      color: #555;
+      font-size: clamp(14px, 1.3vw, 17px);
+      line-height: 1.9;
+    }
+
+    /* =========================
+       カード配置
+    ========================= */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .benefit-card {
+      position: relative;
+      min-height: 180px;
+      padding: 28px 20px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow:
+        0 15px 35px rgba(0, 50, 22, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .benefit-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 70px;
+      height: 4px;
+      border-radius: 0 0 8px 8px;
+      background: var(--green);
+      transform: translateX(-50%);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(0, 122, 54, 0.35);
+      box-shadow:
+        0 22px 45px rgba(0, 70, 30, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+    }
+
+    .benefit-card-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    /* =========================
+       アイコン
+    ========================= */
+    .benefit-icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 16px;
+      border-radius: 18px;
+      background: rgba(0, 122, 54, 0.09);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 29px;
+      font-weight: 900;
+    }
+
+    /* =========================
+       テキスト
+    ========================= */
+    .benefit-label {
+      display: block;
+      margin-bottom: 6px;
+      color: #333333;
+      font-size: clamp(14px, 1.1vw, 17px);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .benefit-main {
+      display: block;
+      color: var(--green);
+      font-size: clamp(27px, 2.5vw, 38px);
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .benefit-main.small-text {
+      font-size: clamp(21px, 2vw, 30px);
+    }
+
+    .benefit-unit {
+      margin-left: 3px;
+      font-size: 0.55em;
+      font-weight: 900;
+    }
+
+    .benefit-note {
+      display: block;
+      margin-top: 8px;
+      color: #666666;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* =========================
+       タブレット
+    ========================= */
+    @media screen and (max-width: 960px) {
+      .benefits {
+        padding: 45px 24px 70px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .benefit-card {
+        min-height: 165px;
+      }
+    }
+
+    /* =========================
+       スマホ
+    ========================= */
+    @media screen and (max-width: 560px) {
+      .hero-image {
+        min-height: auto;
+      }
+
+      .benefits {
+        padding: 35px 14px 50px;
+      }
+
+      .benefits-title-wrap {
+        margin-bottom: 25px;
+      }
+
+      .benefits-subtitle {
+        font-size: 11px;
+      }
+
+      .benefits-title {
+        font-size: 24px;
+      }
+
+      .benefits-description {
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .benefit-card {
+        min-height: 145px;
+        padding: 22px 8px 18px;
+        border-radius: 18px;
+      }
+
+      .benefit-icon {
+        width: 46px;
+        height: 46px;
+        margin-bottom: 12px;
+        border-radius: 14px;
+        font-size: 23px;
+      }
+
+      .benefit-label {
+        font-size: 12px;
+      }
+
+      .benefit-main {
+        font-size: 25px;
+      }
+
+      .benefit-main.small-text {
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .benefit-note {
+        font-size: 10px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <img src="2PAFECT%20TOP.png" alt="株式会社アメックス 創業65年">
+  <main class="page">
+
+    <!-- TOP画像 -->
+    <section class="hero">
+      <img
+        class="hero-image"
+        src="2PAFECT%20TOP.png"
+        alt="創業65年 宮崎の街の快適な生活を創造し、社会に貢献する株式会社アメックス"
+      >
+    </section>
+
+    <!-- 年間休日123日など -->
+    <section class="benefits">
+
+      <div class="benefits-inner">
+
+        <div class="benefits-title-wrap">
+          <p class="benefits-subtitle">
+            WORK ENVIRONMENT
+          </p>
+
+          <h2 class="benefits-title">
+            安心して働ける<span>環境</span>を。
+          </h2>
+
+          <p class="benefits-description">
+            仕事も、休日も、成長も。<br>
+            長く働き続けられる環境づくりに取り組んでいます。
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+
+          <!-- 年間休日 -->
+          <article class="benefit-card">
+            <div class="benefit-card-content">
+
+              <div class="benefit-icon">
+                📅
+              </div>
+
+              <span class="benefit-label">
+                年間休日
+              </span>
+
+              <strong class="benefit-main">
+                123<span class="benefit-unit">日</span>
+              </strong>
+
+              <span class="benefit-note">
+                プライベートも大切にできます
+              </span>
+
+            </div>
+          </article>
+
+          <!-- 完全週休2日制 -->
+          <article class="benefit-card">
+            <div class="benefit-card-content">
+
+              <div class="benefit-icon">
+                ◎
+              </div>
+
+              <span class="benefit-label">
+                休日制度
+              </span>
+
+              <strong class="benefit-main small-text">
+                完全週休<br>2日制
+              </strong>
+
+              <span class="benefit-note">
+                土日祝を中心とした休日制度
+              </span>
+
+            </div>
+          </article>
+
+          <!-- 未経験歓迎 -->
+          <article class="benefit-card">
+            <div class="benefit-card-content">
+
+              <div class="benefit-icon">
+                🔰
+              </div>
+
+              <span class="benefit-label">
+                経験不問
+              </span>
+
+              <strong class="benefit-main small-text">
+                未経験歓迎
+              </strong>
+
+              <span class="benefit-note">
+                先輩社員が丁寧にサポート
+              </span>
+
+            </div>
+          </article>
+
+          <!-- 資格取得支援 -->
+          <article class="benefit-card">
+            <div class="benefit-card-content">
+
+              <div class="benefit-icon">
+                ★
+              </div>
+
+              <span class="benefit-label">
+                スキルアップ
+              </span>
+
+              <strong class="benefit-main small-text">
+                資格取得支援
+              </strong>
+
+              <span class="benefit-note">
+                成長を会社がバックアップ
+              </span>
+
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
 
 </body>
 </html>
