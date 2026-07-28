@@ -17,150 +17,129 @@
       line-height: 1.4;
     }
 
-    /* --- HERO CONTAINER (全体を写真背景にして一体化) --- */
+    /* --- HERO CONTAINER (高さを絞って全体を最適化) --- */
     .hero-container {
       position: relative;
       width: 100%;
-      height: 560px; /* 高さも少し広げてゆったりと */
-      background-image: url('https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/80277585-2525-41db-818f-8b6ac43b37be/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
-      background-size: cover;
-      background-position: center center;
+      height: 480px; /* 男性画像が小さくなった分、高さをすっきりスリムに調整 */
+      background-color: #fff;
+      background-image: url('https://raw.githubusercontent.com/tyuge1022-hash/amecs-lp/e552bea89289769fba5a719d2686dab6d57e1f8a/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
+      background-size: contain; 
+      background-position: right center;
       background-repeat: no-repeat;
       overflow: hidden;
-    }
-
-    /* 左側の文字が見やすくなる、超薄い白グラデーション（オシャレさを損なわないレベル） */
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg, 
-        rgba(255,255,255,0.7) 0%, 
-        rgba(255,255,255,0.5) 30%, 
-        rgba(255,255,255,0) 50%
-      );
-      z-index: 1;
     }
 
     /* 全体レイアウト */
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 1380px;
+      max-width: 1400px;
       height: 100%;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 40px;
+      padding: 0 30px;
     }
 
-    /* 左側：GitHubの完全透過画像（wawawaw65.png・写真の上に重ねる） */
+    /* 左側：PAFECT TOP.png（横並び配置） */
     .hero-left-img {
-      height: 85%;
+      height: 90%;
       width: auto;
-      max-width: 48%;
+      max-width: 58%;
       object-fit: contain;
       object-position: left center;
       display: block;
-      /* 【オシャレ視認性】写真の上でも文字が綺麗に読めるよう、白い光の影を入れる */
-      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.95));
     }
 
-    /* 右上：CVボタン群 */
+    /* 右上：CVボタン群（LINE/Indeed帯デザイン） */
     .header-buttons {
       position: absolute;
-      top: 24px;
-      right: 40px;
+      top: 20px;
+      right: 30px;
       z-index: 10;
       display: flex;
-      gap: 14px;
+      gap: 12px;
+      align-items: center;
     }
 
+    /* LINEボタン（緑グラデーション・不透明感あり） */
     .btn-line {
-      background-color: #00b900;
+      background: linear-gradient(180deg, rgba(50, 205, 50, 0.92) 0%, rgba(0, 160, 0, 0.95) 100%);
       color: #fff;
-      padding: 12px 28px;
-      border-radius: 35px;
-      font-weight: 800;
-      font-size: 1.0rem;
+      padding: 8px 22px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.85rem;
       text-decoration: none;
       display: inline-flex;
+      flex-direction: column;
       align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 12px rgba(0, 185, 0, 0.3);
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 150, 0, 0.3);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .btn-indeed {
-      background-color: #0056b3;
-      color: #fff;
-      padding: 12px 30px;
-      border-radius: 35px;
+    .btn-line .sub-text {
+      font-size: 0.68rem;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-bottom: 2px;
+    }
+
+    .btn-line .main-text {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
       font-weight: 800;
-      font-size: 1.0rem;
+    }
+
+    /* Indeedボタン */
+    .btn-indeed {
+      background: linear-gradient(180deg, rgba(24, 119, 242, 0.92) 0%, rgba(0, 86, 179, 0.95) 100%);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-weight: 800;
+      font-size: 0.92rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+      box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .btn-line:hover, .btn-indeed:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
     }
 
-    /* 右下：年間休日カード画像 */
-    .cards-img-box {
-      position: absolute;
-      bottom: 24px;
-      right: 40px;
-      width: 400px;
-      max-width: 80%;
-      z-index: 5;
-    }
-
-    .cards-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.25));
-    }
-
-    /* スマホ対応（縦並び） */
+    /* スマホ対応（レスポンシブ） */
     @media (max-width: 960px) {
       .hero-container {
         height: auto;
-        min-height: 500px;
-      }
-      .hero-overlay {
-        background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+        min-height: 450px;
+        background-size: cover;
       }
       .hero-content {
         flex-direction: column;
         justify-content: center;
-        padding: 80px 20px 30px;
+        padding: 70px 15px 20px;
       }
       .hero-left-img {
         max-width: 100%;
         height: auto;
-        margin-bottom: 20px;
       }
       .header-buttons {
-        top: 16px;
-        right: 16px;
-      }
-      .cards-img-box {
-        position: relative;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        margin-top: 20px;
+        top: 12px;
+        right: 12px;
       }
     }
   </style>
@@ -168,23 +147,19 @@
 <body>
 
   <div class="hero-container">
-    <div class="hero-overlay"></div>
 
     <div class="header-buttons">
       <a href="#" class="btn-line">
-        LINEで相談する
+        <span class="sub-text">求人に関するご質問・ご応募はこちら</span>
+        <span class="main-text">💬 LINEで相談する</span>
       </a>
       <a href="#" class="btn-indeed">
-        Indeedで応募する &rarr;
+        Indeedで応募する &rsaquo;
       </a>
     </div>
 
     <div class="hero-content">
-      <img class="hero-left-img" src="https://raw.githubusercontent.com/tyuge1022-hash/amecs-lp/main/wawawaw65.png" alt="AMECS 創業65年 宮崎の街の快適な生活を創造し、社会に貢献する。">
-
-      <div class="cards-img-box">
-        <img class="cards-img" src="https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/466d96b8-fc2e-42b6-af4f-eb895402bb2c/nennkann_.png" alt="年間休日123日 完全週休2日制 未経験歓迎 資格取得支援">
-      </div>
+      <img class="hero-left-img" src="https://raw.githubusercontent.com/tyuge1022-hash/amecs-lp/d24b1ad864f9be497345479558f1a4565329f65d/PAFECT%20TOP.png" alt="株式会社アメックス 創業65年 宮崎の街の快適な生活を創造し、社会に貢献する。">
     </div>
 
   </div>
