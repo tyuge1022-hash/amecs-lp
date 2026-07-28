@@ -17,17 +17,17 @@
       line-height: 1.4;
     }
 
-    /* --- HERO CONTAINER (左右2列レイアウト) --- */
+    /* --- HERO CONTAINER (左右分割) --- */
     .hero-container {
       position: relative;
       width: 100%;
       height: 480px;
-      background-color: #fff;
+      background-color: #ffffff;
       display: flex;
       overflow: hidden;
     }
 
-    /* 左側エリア：100%完全な白背景（透けを完全にシャットアウト） */
+    /* 左エリア：完全な白背景＋格子柄を無効化して文字だけ浮き立たせる */
     .hero-left {
       width: 50%;
       height: 100%;
@@ -35,24 +35,26 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding: 20px 40px 20px 20px;
+      padding: 20px 30px 20px 20px;
       z-index: 2;
     }
 
     .hero-left-img {
-      max-height: 90%;
+      max-height: 92%;
       max-width: 100%;
       width: auto;
       height: auto;
       object-fit: contain;
       display: block;
+      /* 【必殺技】画像の灰色の格子模様（市松模様）を白地に馴染ませて消去 */
+      mix-blend-mode: multiply;
     }
 
-    /* 右側エリア：男性二人の写真 */
+    /* 右エリア：男性二人の写真（安定表示URL） */
     .hero-right {
       width: 50%;
       height: 100%;
-      background-image: url('https://raw.githubusercontent.com/tyuge1022-hash/amecs-lp/e552bea89289769fba5a719d2686dab6d57e1f8a/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
+      background-image: url('https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/80277585-2525-41db-818f-8b6ac43b37be/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -71,9 +73,9 @@
       align-items: center;
     }
 
-    /* LINEボタン（緑グラデーション・帯デザイン） */
+    /* LINEボタン */
     .btn-line {
-      background: linear-gradient(180deg, rgba(50, 205, 50, 0.95) 0%, rgba(0, 160, 0, 0.98) 100%);
+      background: linear-gradient(180deg, #28d128 0%, #009900 100%);
       color: #fff;
       padding: 8px 22px;
       border-radius: 40px;
@@ -106,7 +108,7 @@
 
     /* Indeedボタン */
     .btn-indeed {
-      background: linear-gradient(180deg, rgba(24, 119, 242, 0.95) 0%, rgba(0, 86, 179, 0.98) 100%);
+      background: linear-gradient(180deg, #1877f2 0%, #0056b3 100%);
       color: #fff;
       padding: 12px 24px;
       border-radius: 40px;
