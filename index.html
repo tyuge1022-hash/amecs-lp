@@ -17,7 +17,7 @@
       line-height: 1.4;
     }
 
-    /* --- HERO CONTAINER (左右等分分割) --- */
+    /* --- HERO CONTAINER (左右均等分割・高さ完全一致) --- */
     .hero-container {
       position: relative;
       width: 100%;
@@ -28,7 +28,7 @@
       overflow: hidden;
     }
 
-    /* 左エリア（透過文字画像） */
+    /* 【左エリア】コミット 784fac... の透過画像エリア */
     .hero-left {
       width: 50%;
       height: 100%;
@@ -49,10 +49,11 @@
       display: block;
     }
 
-    /* 右エリア（男性二人写真：同階層ファイル相対参照） */
+    /* 【右エリア】コミット e552be... の背景写真（CSS指定） */
     .hero-right {
       width: 50%;
       height: 100%;
+      /* 同階層の写真ファイルを相対パス指定 */
       background-image: url('7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
       background-size: cover;
       background-position: center center;
@@ -61,7 +62,7 @@
       z-index: 1;
     }
 
-    /* 右上 CVボタン */
+    /* 右上 CVボタン群 */
     .header-buttons {
       position: absolute;
       top: 20px;
@@ -126,7 +127,7 @@
       transform: translateY(-2px);
     }
 
-    /* スマホ対応 */
+    /* レスポンシブ対応 */
     @media (max-width: 960px) {
       .hero-container {
         flex-direction: column;
