@@ -17,14 +17,16 @@
       line-height: 1.4;
     }
 
-    /* --- HERO CONTAINER (高さ600px・白グラデーション無しの完全生写真) --- */
+    /* --- HERO CONTAINER (背景サイズを最適化) --- */
     .hero-container {
       position: relative;
       width: 100%;
-      height: 600px;
+      height: 520px; /* 縦幅も丁度いいサイズに微調整 */
+      background-color: #f8f9fa; /* 背景に薄いグレーを敷いて写真を際立たせる */
       background-image: url('https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/80277585-2525-41db-818f-8b6ac43b37be/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
-      background-size: cover;
-      background-position: center center;
+      /* 写真をでかくしすぎず、二人全体が収まるサイズ感に固定 */
+      background-size: contain; 
+      background-position: right bottom;
       background-repeat: no-repeat;
       overflow: hidden;
     }
@@ -44,20 +46,20 @@
 
     /* 左側：GitHubの完全透過画像（wawawaw65.png） */
     .hero-left-img {
-      height: 82%;
+      height: 85%;
       width: auto;
-      max-width: 48%;
+      max-width: 45%;
       object-fit: contain;
       object-position: left center;
       display: block;
-      /* 背景写真の上でも文字が見やすくなるソフトシャドウ */
-      filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.8));
+      /* 背景写真の上でも文字が読みやすいようドロップシャドウ */
+      filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.9));
     }
 
     /* 右上：CVボタン群 */
     .header-buttons {
       position: absolute;
-      top: 24px;
+      top: 20px;
       right: 40px;
       z-index: 10;
       display: flex;
@@ -67,10 +69,10 @@
     .btn-line {
       background-color: #00b900;
       color: #fff;
-      padding: 12px 28px;
+      padding: 10px 26px;
       border-radius: 35px;
       font-weight: 800;
-      font-size: 1.0rem;
+      font-size: 0.95rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -81,10 +83,10 @@
     .btn-indeed {
       background-color: #0056b3;
       color: #fff;
-      padding: 12px 30px;
+      padding: 10px 28px;
       border-radius: 35px;
       font-weight: 800;
-      font-size: 1.0rem;
+      font-size: 0.95rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -99,10 +101,10 @@
     /* 右下：年間休日カード画像 */
     .cards-img-box {
       position: absolute;
-      bottom: 24px;
+      bottom: 20px;
       right: 40px;
-      width: 400px;
-      max-width: 80%;
+      width: 380px;
+      max-width: 75%;
       z-index: 5;
     }
 
@@ -110,14 +112,15 @@
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.25));
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.2));
     }
 
     /* スマホ対応 */
     @media (max-width: 960px) {
       .hero-container {
         height: auto;
-        min-height: 500px;
+        min-height: 480px;
+        background-size: cover;
       }
       .hero-content {
         flex-direction: column;
