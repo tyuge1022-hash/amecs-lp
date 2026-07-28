@@ -17,18 +17,32 @@
       line-height: 1.4;
     }
 
-    /* --- HERO CONTAINER (背景サイズを最適化) --- */
+    /* --- HERO CONTAINER (全体を写真背景にして一体化) --- */
     .hero-container {
       position: relative;
       width: 100%;
-      height: 520px; /* 縦幅も丁度いいサイズに微調整 */
-      background-color: #f8f9fa; /* 背景に薄いグレーを敷いて写真を際立たせる */
+      height: 560px; /* 高さも少し広げてゆったりと */
       background-image: url('https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5b8ae463-b598-40b0-af68-03e50a0000fe/img/80277585-2525-41db-818f-8b6ac43b37be/7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg');
-      /* 写真をでかくしすぎず、二人全体が収まるサイズ感に固定 */
-      background-size: contain; 
-      background-position: right bottom;
+      background-size: cover;
+      background-position: center center;
       background-repeat: no-repeat;
       overflow: hidden;
+    }
+
+    /* 左側の文字が見やすくなる、超薄い白グラデーション（オシャレさを損なわないレベル） */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg, 
+        rgba(255,255,255,0.7) 0%, 
+        rgba(255,255,255,0.5) 30%, 
+        rgba(255,255,255,0) 50%
+      );
+      z-index: 1;
     }
 
     /* 全体レイアウト */
@@ -44,22 +58,22 @@
       padding: 0 40px;
     }
 
-    /* 左側：GitHubの完全透過画像（wawawaw65.png） */
+    /* 左側：GitHubの完全透過画像（wawawaw65.png・写真の上に重ねる） */
     .hero-left-img {
       height: 85%;
       width: auto;
-      max-width: 45%;
+      max-width: 48%;
       object-fit: contain;
       object-position: left center;
       display: block;
-      /* 背景写真の上でも文字が読みやすいようドロップシャドウ */
-      filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.9));
+      /* 【オシャレ視認性】写真の上でも文字が綺麗に読めるよう、白い光の影を入れる */
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.95));
     }
 
     /* 右上：CVボタン群 */
     .header-buttons {
       position: absolute;
-      top: 20px;
+      top: 24px;
       right: 40px;
       z-index: 10;
       display: flex;
@@ -69,42 +83,45 @@
     .btn-line {
       background-color: #00b900;
       color: #fff;
-      padding: 10px 26px;
+      padding: 12px 28px;
       border-radius: 35px;
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: 1.0rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
+      gap: 8px;
       box-shadow: 0 4px 12px rgba(0, 185, 0, 0.3);
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .btn-indeed {
       background-color: #0056b3;
       color: #fff;
-      padding: 10px 28px;
+      padding: 12px 30px;
       border-radius: 35px;
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: 1.0rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
+      gap: 8px;
       box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .btn-line:hover, .btn-indeed:hover {
       transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     }
 
     /* 右下：年間休日カード画像 */
     .cards-img-box {
       position: absolute;
-      bottom: 20px;
+      bottom: 24px;
       right: 40px;
-      width: 380px;
-      max-width: 75%;
+      width: 400px;
+      max-width: 80%;
       z-index: 5;
     }
 
@@ -112,15 +129,17 @@
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.2));
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.25));
     }
 
-    /* スマホ対応 */
+    /* スマホ対応（縦並び） */
     @media (max-width: 960px) {
       .hero-container {
         height: auto;
-        min-height: 480px;
-        background-size: cover;
+        min-height: 500px;
+      }
+      .hero-overlay {
+        background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
       }
       .hero-content {
         flex-direction: column;
@@ -149,10 +168,15 @@
 <body>
 
   <div class="hero-container">
+    <div class="hero-overlay"></div>
 
     <div class="header-buttons">
-      <a href="#" class="btn-line">LINEで相談する</a>
-      <a href="#" class="btn-indeed">Indeedで応募する &rarr;</a>
+      <a href="#" class="btn-line">
+        LINEで相談する
+      </a>
+      <a href="#" class="btn-indeed">
+        Indeedで応募する &rarr;
+      </a>
     </div>
 
     <div class="hero-content">
