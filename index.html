@@ -17,40 +17,40 @@
       line-height: 1.4;
     }
 
-    /* --- HERO CONTAINER (左右分割) --- */
+    /* --- HERO CONTAINER (左右の要素の高さを揃える) --- */
     .hero-container {
       position: relative;
       width: 100%;
-      height: 480px;
+      height: 480px; /* 全体の高さを480pxに統一 */
       background-color: #ffffff;
       display: flex;
+      align-items: stretch; /* 左右の要素の高さをぴったり揃える */
       overflow: hidden;
     }
 
-    /* 左エリア：完全な白背景＋格子柄を無効化して文字だけ浮き立たせる */
+    /* 左エリア：完全透過画像を指定・高さを均一化 */
     .hero-left {
       width: 50%;
       height: 100%;
       background-color: #ffffff;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      padding: 20px 30px 20px 20px;
+      justify-content: center;
+      padding: 20px;
       z-index: 2;
     }
 
     .hero-left-img {
-      max-height: 92%;
+      max-height: 90%;
       max-width: 100%;
       width: auto;
       height: auto;
       object-fit: contain;
       display: block;
-      /* 【必殺技】画像の灰色の格子模様（市松模様）を白地に馴染ませて消去 */
-      mix-blend-mode: multiply;
+      /* 乗算処理は完全に解除 */
     }
 
-    /* 右エリア：男性二人の写真（安定表示URL） */
+    /* 右エリア：男性二人の写真（高さを左側と完全統一） */
     .hero-right {
       width: 50%;
       height: 100%;
@@ -138,7 +138,6 @@
       }
       .hero-left {
         padding: 80px 20px 30px;
-        justify-content: center;
       }
       .hero-right {
         height: 300px;
@@ -164,13 +163,4 @@
       </a>
     </div>
 
-    <div class="hero-left">
-      <img class="hero-left-img" src="https://raw.githubusercontent.com/tyuge1022-hash/amecs-lp/d24b1ad864f9be497345479558f1a4565329f65d/PAFECT%20TOP.png" alt="株式会社アメックス 創業65年">
-    </div>
-
-    <div class="hero-right"></div>
-
-  </div>
-
-</body>
-</html>
+    <div class="hero-left
