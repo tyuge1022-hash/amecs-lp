@@ -22,7 +22,7 @@
       align-items: center;
     }
 
-    /* 16:9（1920x1080）の比率を保ったまま画面に一発ジャストフィット */
+    /* 16:9（1920x1080）比率保持コンテナ */
     .lp-container {
       position: relative;
       height: 100vh;
@@ -40,14 +40,14 @@
       display: block;
     }
 
-    /* くり抜き位置に内側フィット（はみ出し防止調整済み） */
+    /* くり抜き枠の中にスッポリ収める位置・サイズの微調整 */
     .button-wrapper {
       position: absolute;
-      left: 2.5%;       /* 内側に寄せました */
-      bottom: 11.2%;
-      width: 42.8%;     /* 幅を微調整して収まりを完璧に */
+      left: 2.8%;        /* さらに少し右（内側）へ */
+      bottom: 12.8%;     /* 下から持ち上げて枠線の上へ乗せる */
+      width: 41.5%;      /* 横幅を少しコンパクトに調整 */
       display: flex;
-      gap: 3.0%;
+      gap: 2.5%;
       align-items: center;
       z-index: 10;
     }
