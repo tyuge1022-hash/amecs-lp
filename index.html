@@ -34,15 +34,15 @@
       .sp-container { position: relative; width: 100vw; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
       .sp-bg { width: 100%; height: auto; display: block; }
 
-      /* CTAボタンエリア：%を使わず、画像のピクセル位置で絶対指定 */
+      /* CTAボタンエリア：LINEの位置をわずかに下げ、ボタン間隔を詰める */
       .sp-btn-wrapper {
         position: absolute;
         width: 86.0%;
-        top: 67.2%;     /* ラストピース.pngにおける完全な空白の中央値 */
+        top: 67.5%;     /* LINEの上にほんの少し余白を作る絶妙な高さ */
         left: 7.0%;
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 2px;       /* 【ご指示通り】LINEとIndeedの間隔を狭めてキュッと配置 */
         z-index: 10;
       }
       .sp-btn-link { width: 100%; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: transform 0.15s ease; }
