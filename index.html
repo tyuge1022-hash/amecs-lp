@@ -34,12 +34,12 @@
       .sp-container { position: relative; width: 100vw; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
       .sp-bg { width: 100%; height: auto; display: block; }
 
-      /* CTAボタンエリア配置 */
+      /* CTAボタンエリア：ご指示通り top: 55.0% に配置 */
       .sp-btn-wrapper {
         position: absolute;
-        width: 82.0%;
-        top: 65.5%;
-        left: 9.0%;
+        width: 86.0%;  /* 幅もほどよく確保 */
+        top: 55.0%;    /* 【ご指示値】下へ移動 */
+        left: 7.0%;   /* 中央配置 (100 - 86) / 2 */
         display: flex;
         flex-direction: column;
         gap: 6px;
@@ -48,11 +48,11 @@
       .sp-btn-link { width: 100%; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: transform 0.15s ease; }
       .sp-btn-link:active { transform: scale(0.98); }
 
-      /* 【重要】ボタンの縦幅をコンパクトに制限して絶対踏ませない */
+      /* アイコンを少し大きめ（高さを46px確保）に修正 */
       .sp-btn-img {
         width: 100%;
         height: auto;
-        max-height: 38px; /* 高さを抑えてスリム化 */
+        max-height: 46px; /* 少し大きめに戻して視認性を確保 */
         object-fit: contain;
         display: block;
       }
