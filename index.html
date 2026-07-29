@@ -9,7 +9,7 @@
     body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; background-color: #f8f9fa; color: #333; }
 
     /* ==========================================
-       PC用スタイル (kore1.pngベース)
+       PC用スタイル
        ========================================== */
     @media (min-width: 768px) {
       .mobile-only { display: none !important; }
@@ -34,24 +34,25 @@
       .sp-container { position: relative; width: 100vw; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
       .sp-bg { width: 100%; height: auto; display: block; }
 
-      /* CTAボタンエリア：幅70%に縮小、中央配置、上下カードに絶対被らない位置に配置 */
+      /* CTAボタンエリア配置 */
       .sp-btn-wrapper {
         position: absolute;
-        width: 70.0%; /* 【修正】大きすぎたのを70%に縮小 */
-        top: 67.5%;    /* 【修正】上下踏まない安全地帯中央 */
-        left: 15.0%;  /* 【修正】70%の幅を中央に寄せる (100 - 70) / 2 */
+        width: 82.0%;
+        top: 65.5%;
+        left: 9.0%;
         display: flex;
         flex-direction: column;
-        gap: 6px;     /* 【修正】間隔をわずかに広げる */
+        gap: 6px;
         z-index: 10;
       }
       .sp-btn-link { width: 100%; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: transform 0.15s ease; }
       .sp-btn-link:active { transform: scale(0.98); }
 
+      /* 【重要】ボタンの縦幅をコンパクトに制限して絶対踏ませない */
       .sp-btn-img {
         width: 100%;
         height: auto;
-        /* max-height: 52px; 背景を広げたので制限解除してきれいに見せる */
+        max-height: 38px; /* 高さを抑えてスリム化 */
         object-fit: contain;
         display: block;
       }
