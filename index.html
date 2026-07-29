@@ -13,7 +13,7 @@
 
     body {
       font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-      background-color: #fff;
+      background-color: #f8f9fa;
       color: #333;
     }
 
@@ -47,22 +47,37 @@
         display: block;
       }
 
+      /* ボタンエリア：左右のカード端と完全に一致させる配置 */
       .pc-btn-wrapper {
         position: absolute;
-        left: 1.6%;
-        bottom: 12.8%;
-        width: 38.8%;
+        left: 2.5%;        /* LINEボタンの左端をカード左端と完全一致 */
+        bottom: 12.0%;     /* 白枠の上下中央に配置 */
+        width: 42.8%;      /* Indeedボタンの右端をカード右端と完全一致 */
         display: flex;
-        gap: 2.0%;
+        gap: 1.8%;         /* ボタン同士の間隔 */
+        align-items: center;
         z-index: 10;
       }
 
       .btn-link {
         flex: 1;
-        transition: transform 0.15s ease;
+        display: block;
+        text-decoration: none;
+        transition: transform 0.15s ease, filter 0.15s ease;
       }
-      .btn-link:hover { transform: translateY(-2px) scale(1.02); }
-      .btn-img { width: 100%; height: auto; display: block; }
+      .btn-link:hover {
+        transform: translateY(-2px) scale(1.02);
+        filter: brightness(1.05);
+      }
+      .btn-link:active {
+        transform: translateY(1px) scale(0.98);
+      }
+      .btn-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        pointer-events: none;
+      }
     }
 
     /* ==========================================
@@ -78,7 +93,6 @@
         text-align: center;
       }
 
-      /* ヘッダーロゴ */
       .sp-header {
         display: flex;
         align-items: center;
@@ -95,21 +109,48 @@
         letter-spacing: 2px;
       }
 
-      /* メインコピー */
       .sp-badge { color: #00703c; font-weight: bold; margin-bottom: 10px; display: block; }
       .sp-title { font-size: 26px; font-weight: 900; line-height: 1.4; margin-bottom: 15px; }
       .sp-title span { color: #00703c; }
       .sp-desc { font-size: 14px; line-height: 1.6; margin-bottom: 25px; color: #444; }
 
-      /* メイン写真 */
-      .sp-main-img {
+      .sp-main-img-container {
+        position: relative;
         width: 100%;
         border-radius: 15px;
+        overflow: hidden;
         margin-bottom: 25px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       }
+      .sp-main-img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
 
-      /* 特徴カード（3つ） */
+      .sp-btn-wrapper {
+        position: absolute;
+        left: 5%;
+        bottom: 8%;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .sp-btn-link {
+        width: 100%;
+        display: block;
+        text-decoration: none;
+      }
+      .sp-btn-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        pointer-events: none;
+      }
+
       .sp-features { margin-bottom: 25px; }
       .sp-feat-card {
         background: #f8faf9;
@@ -121,15 +162,10 @@
         gap: 12px;
         text-align: left;
       }
+      .sp-feat-card span { font-size: 20px; }
       .sp-feat-card b { color: #00703c; font-size: 15px; }
       .sp-feat-card p { font-size: 12px; color: #666; }
 
-      /* ボタンエリア（ここが重要） */
-      .sp-cta { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
-      .sp-btn { width: 100%; display: block; }
-      .sp-btn img { width: 100%; height: auto; display: block; }
-
-      /* 下部4枚カード */
       .sp-stats {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -155,14 +191,14 @@
   <div class="pc-only pc-container">
     <img src="kore1.png" alt="PC背景" class="pc-bg">
     <div class="pc-btn-wrapper">
-      <a href="#" class="btn-link"><img src="Lin.png" class="btn-img"></a>
-      <a href="#" class="btn-link"><img src="indeed.png" class="btn-img"></a>
+      <a href="#" class="btn-link" target="_blank" rel="noopener noreferrer"><img src="Lin.png" alt="LINEで会社見学予約" class="btn-img"></a>
+      <a href="#" class="btn-link" target="_blank" rel="noopener noreferrer"><img src="indeed.png" alt="Indeedから応募する" class="btn-img"></a>
     </div>
   </div>
 
   <div class="mobile-only sp-lp">
     <div class="sp-header">
-      <img src="https://github.com/tyuge1022-hash/amecs-lp/blob/main/YTgazou.png?raw=true" style="width:30px; height:auto;"> <span class="sp-logo-text">AMECS</span>
+      <img src="https://github.com/tyuge1022-hash/amecs-lp/blob/main/YTgazou.png?raw=true" alt="ロゴマーク" style="width:30px; height:auto;"> <span class="sp-logo-text">AMECS</span>
     </div>
 
     <span class="sp-badge">\ 創業 65 年 /</span>
@@ -176,7 +212,18 @@
       地域のライフラインを支え続ける総合設備会社です。
     </p>
 
-    <img src="7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg" class="sp-main-img" alt="現場写真">
+    <div class="sp-main-img-container">
+      <img src="7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg" class="sp-main-img" alt="現場写真">
+      
+      <div class="sp-btn-wrapper">
+        <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer">
+          <img src="Lin.png" alt="LINEで会社見学予約" class="sp-btn-img">
+        </a>
+        <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer">
+          <img src="indeed.png" alt="Indeedから応募する" class="sp-btn-img">
+        </a>
+      </div>
+    </div>
 
     <div class="sp-features">
       <div class="sp-feat-card">
@@ -191,11 +238,6 @@
         <span>👥</span>
         <div><b>働きやすい環境</b><p>年間休日123日＆完全週休2日制！</p></div>
       </div>
-    </div>
-
-    <div class="sp-cta">
-      <a href="#" class="sp-btn"><img src="Lin.png" alt="LINE予約"></a>
-      <a href="#" class="sp-btn"><img src="indeed.png" alt="Indeed応募"></a>
     </div>
 
     <div class="sp-stats">
