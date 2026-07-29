@@ -47,10 +47,10 @@
         display: block;
       }
 
-      /* PC用ボタンエリア（カード右端と垂直線を一致） */
+      /* PC用ボタン配置：指示通り2.0%に減らして全体を左へスライド */
       .pc-btn-wrapper {
         position: absolute;
-        left: 3.0%;
+        left: 2.0%;
         bottom: 12.0%;
         width: 41.8%;
         display: flex;
@@ -73,7 +73,6 @@
       .btn-link:active {
         transform: translateY(1px) scale(0.98);
       }
-      /* ボタンサイズをご指示通り82%に調整 */
       .btn-img {
         width: 82%;
         height: auto;
@@ -84,7 +83,7 @@
     }
 
     /* ==========================================
-       スマホ用スタイル（スマホ一覧改.png＋高画質ボタン）
+       スマホ用スタイル（スマホ一覧改.png）
        ========================================== */
     @media (max-width: 767px) {
       .pc-only { display: none !important; }
@@ -108,7 +107,7 @@
         display: block;
       }
 
-      /* 空白スペースにボタンをジャストフィットさせるレスポンシブ配置 */
+      /* スマホ用ボタン配置エリア */
       .sp-btn-wrapper {
         position: absolute;
         left: 3.2%;
@@ -122,7 +121,9 @@
 
       .sp-btn-link {
         width: 100%;
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-decoration: none;
         transition: transform 0.15s ease;
       }
@@ -130,9 +131,12 @@
         transform: scale(0.98);
       }
 
+      /* 指示通り縦幅（高さ）を60pxにジャスト固定 */
       .sp-btn-img {
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 60px;
+        max-width: 100%;
+        object-fit: contain;
         display: block;
       }
     }
