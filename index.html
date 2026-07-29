@@ -47,7 +47,7 @@
         display: block;
       }
 
-      /* PC用ボタン位置（カード左端・右端と垂直ジャストフィット） */
+      /* PC用ボタンエリア（カード右端と垂直線を一致） */
       .pc-btn-wrapper {
         position: absolute;
         left: 3.0%;
@@ -56,6 +56,7 @@
         display: flex;
         gap: 1.8%;
         align-items: center;
+        justify-content: space-between;
         z-index: 10;
       }
 
@@ -72,16 +73,18 @@
       .btn-link:active {
         transform: translateY(1px) scale(0.98);
       }
+      /* ボタンサイズをご指示通り82%に調整 */
       .btn-img {
-        width: 100%;
+        width: 82%;
         height: auto;
         display: block;
+        margin: 0 auto;
         pointer-events: none;
       }
     }
 
     /* ==========================================
-       スマホ用スタイル（sumaho一覧.png）
+       スマホ用スタイル（スマホ一覧改.png＋高画質ボタン）
        ========================================== */
     @media (max-width: 767px) {
       .pc-only { display: none !important; }
@@ -105,11 +108,11 @@
         display: block;
       }
 
-      /* スマホ用ボタン位置（sumaho一覧.pngのボタンデザイン部分にピッタリ配置） */
+      /* 空白スペースにボタンをジャストフィットさせるレスポンシブ配置 */
       .sp-btn-wrapper {
         position: absolute;
         left: 3.2%;
-        bottom: 23.2%;
+        top: 61.5%;
         width: 93.6%;
         display: flex;
         flex-direction: column;
@@ -120,6 +123,11 @@
       .sp-btn-link {
         width: 100%;
         display: block;
+        text-decoration: none;
+        transition: transform 0.15s ease;
+      }
+      .sp-btn-link:active {
+        transform: scale(0.98);
       }
 
       .sp-btn-img {
@@ -141,10 +149,14 @@
   </div>
 
   <div class="mobile-only sp-container">
-    <img src="sumaho一覧.png" alt="株式会社アメックス 採用LP" class="sp-bg">
+    <img src="スマホ一覧改.png" alt="株式会社アメックス 採用LP" class="sp-bg">
     <div class="sp-btn-wrapper">
-      <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer"><img src="Lin.png" alt="LINEで会社見学予約" class="sp-btn-img"></a>
-      <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer"><img src="indeed.png" alt="Indeedから応募する" class="sp-btn-img"></a>
+      <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer">
+        <img src="Lin.png" alt="LINEで会社見学予約" class="sp-btn-img">
+      </a>
+      <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer">
+        <img src="indeed.png" alt="Indeedから応募する" class="sp-btn-img">
+      </a>
     </div>
   </div>
 
