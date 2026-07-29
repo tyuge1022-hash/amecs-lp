@@ -9,7 +9,7 @@
     body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; background-color: #f8f9fa; color: #333; }
 
     /* ==========================================
-       PC用スタイル
+       PC用スタイル (kore1.pngベース)
        ========================================== */
     @media (min-width: 768px) {
       .mobile-only { display: none !important; }
@@ -34,21 +34,21 @@
       .sp-container { position: relative; width: 100vw; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
       .sp-bg { width: 100%; height: auto; display: block; }
 
-      /* CTAボタンエリア：LINEの位置をわずかに下げ、ボタン間隔を詰める */
+      /* CTAボタンエリア：ご指示通り幅 92.0% 指定 */
       .sp-btn-wrapper {
         position: absolute;
-        width: 86.0%;
-        top: 67.5%;     /* LINEの上にほんの少し余白を作る絶妙な高さ */
-        left: 7.0%;
+        width: 92.0%;  /* 【確定】横幅を92.0%に設定 */
+        top: 67.0%;    /* 上のカード直下に配置 */
+        left: 4.0%;   /* 中央配置 (100 - 92) / 2 */
         display: flex;
         flex-direction: column;
-        gap: 2px;       /* 【ご指示通り】LINEとIndeedの間隔を狭めてキュッと配置 */
+        gap: 2px;      /* ボタン同士の間隔をキュッと詰める */
         z-index: 10;
       }
       .sp-btn-link { width: 100%; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: transform 0.15s ease; }
       .sp-btn-link:active { transform: scale(0.98); }
 
-      /* ボタンアイコンサイズ */
+      /* アイコン画像の高さ制限（高さ変えずに横にワイド化） */
       .sp-btn-img {
         width: 100%;
         height: auto;
