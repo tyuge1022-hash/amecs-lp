@@ -34,12 +34,12 @@
       .sp-container { position: relative; width: 100vw; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
       .sp-bg { width: 100%; height: auto; display: block; }
 
-      /* CTAボタンエリア：ご指示通り top: 55.0% に配置 */
+      /* CTAボタンエリア：%を使わず、画像のピクセル位置で絶対指定 */
       .sp-btn-wrapper {
         position: absolute;
-        width: 86.0%;  /* 幅もほどよく確保 */
-        top: 55.0%;    /* 【ご指示値】下へ移動 */
-        left: 7.0%;   /* 中央配置 (100 - 86) / 2 */
+        width: 86.0%;
+        top: 67.2%;     /* ラストピース.pngにおける完全な空白の中央値 */
+        left: 7.0%;
         display: flex;
         flex-direction: column;
         gap: 6px;
@@ -48,11 +48,11 @@
       .sp-btn-link { width: 100%; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: transform 0.15s ease; }
       .sp-btn-link:active { transform: scale(0.98); }
 
-      /* アイコンを少し大きめ（高さを46px確保）に修正 */
+      /* ボタンアイコンサイズ */
       .sp-btn-img {
         width: 100%;
         height: auto;
-        max-height: 46px; /* 少し大きめに戻して視認性を確保 */
+        max-height: 44px;
         object-fit: contain;
         display: block;
       }
