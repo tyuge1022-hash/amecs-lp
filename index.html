@@ -1,39 +1,93 @@
-<section class="hero">
-    <img src="images/kore1.png" alt="AMECS採用TOP">
-</section>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社アメックス | 採用情報</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<section class="hero-buttons">
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      background-color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
 
-    <a href="LINEのURL" target="_blank">
-        <img src="Lin.png" alt="LINE">
-    </a>
+    /* 1920x1080 の画面比率を保つメインコンテナ */
+    .lp-container {
+      position: relative;
+      width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
 
-    <a href="IndeedのURL" target="_blank">
-        <img src="indeed.png" alt="Indeed">
-    </a>
+    /* 背景ベース画像 (kore1.png) */
+    .bg-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-    <p class="hero-message">
-        ご質問・ご相談もお気軽にどうぞ！
-    </p>
+    /* 左下「ご質問・ご相談」の上（くり抜き部分）にぴったり重ねるボタンエリア */
+    .button-wrapper {
+      position: absolute;
+      left: 2.1%;
+      bottom: 10.8%;
+      width: 43.8%;
+      display: flex;
+      gap: 3.2%;
+      align-items: center;
+      z-index: 10;
+    }
 
-</section>
+    /* ボタンリンク */
+    .btn-link {
+      flex: 1;
+      display: block;
+      text-decoration: none;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
 
-<section class="hero">
-    <img src="2PAFECT TOP.png" alt="AMECS採用TOP">
-</section>
+    /* ホバー時の高級感ある押し込み・浮き上がり効果 */
+    .btn-link:hover {
+      transform: translateY(-2px) scale(1.015);
+      filter: brightness(1.05);
+    }
 
-<section class="hero-buttons">
+    .btn-link:active {
+      transform: translateY(1px) scale(0.99);
+    }
 
-    <a href="LINEのURL" target="_blank">
-        
-    </a>
+    /* 画像ボタン本体 */
+    .btn-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
 
-    <a href="IndeedのURL" target="_blank">
-        <img src="images/indeed.png" alt="Indeedから応募">
-    </a>
+  <div class="lp-container">
+    <img src="kore1.png" alt="株式会社アメックス 採用LP" class="bg-image">
 
-    <p class="hero-message">
-        ご質問・ご相談もお気軽にどうぞ！
-    </p>
+    <div class="button-wrapper">
+      <a href="#" class="btn-link" target="_blank" rel="noopener noreferrer">
+        <img src="Lin.png" alt="LINEで会社見学予約" class="btn-img">
+      </a>
 
-</section>
+      <a href="#" class="btn-link" target="_blank" rel="noopener noreferrer">
+        <img src="indeed.png" alt="Indeedから応募する" class="btn-img">
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
