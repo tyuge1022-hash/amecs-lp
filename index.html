@@ -18,7 +18,7 @@
     }
 
     /* ==========================================
-       PC用スタイル（横長1枚絵ベース）
+       PC用スタイル（kore1.png）
        ========================================== */
     @media (min-width: 768px) {
       .mobile-only { display: none !important; }
@@ -47,14 +47,14 @@
         display: block;
       }
 
-      /* ボタンエリア：左右のカード端と完全に一致させる配置 */
+      /* PC用ボタン位置（カード左端・右端と垂直ジャストフィット） */
       .pc-btn-wrapper {
         position: absolute;
-        left: 2.5%;        /* LINEボタンの左端をカード左端と完全一致 */
-        bottom: 12.0%;     /* 白枠の上下中央に配置 */
-        width: 42.8%;      /* Indeedボタンの右端をカード右端と完全一致 */
+        left: 3.0%;
+        bottom: 12.0%;
+        width: 41.8%;
         display: flex;
-        gap: 1.8%;         /* ボタン同士の間隔 */
+        gap: 1.8%;
         align-items: center;
         z-index: 10;
       }
@@ -81,173 +81,71 @@
     }
 
     /* ==========================================
-       スマホ用スタイル（縦並びHTMLレイアウト）
+       スマホ用スタイル（sumaho一覧.png）
        ========================================== */
     @media (max-width: 767px) {
       .pc-only { display: none !important; }
 
-      body { overflow-y: auto; overflow-x: hidden; }
-
-      .sp-lp {
-        padding: 20px 15px;
-        text-align: center;
+      body {
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: #f8f9fa;
       }
 
-      .sp-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 20px;
-        border-top: 1px solid #00703c;
-        border-bottom: 1px solid #00703c;
-        padding: 10px 0;
-      }
-      .sp-logo-text {
-        font-size: 24px;
-        font-weight: 900;
-        letter-spacing: 2px;
-      }
-
-      .sp-badge { color: #00703c; font-weight: bold; margin-bottom: 10px; display: block; }
-      .sp-title { font-size: 26px; font-weight: 900; line-height: 1.4; margin-bottom: 15px; }
-      .sp-title span { color: #00703c; }
-      .sp-desc { font-size: 14px; line-height: 1.6; margin-bottom: 25px; color: #444; }
-
-      .sp-main-img-container {
+      .sp-container {
         position: relative;
-        width: 100%;
-        border-radius: 15px;
-        overflow: hidden;
-        margin-bottom: 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        width: 100vw;
+        max-width: 100%;
+        margin: 0 auto;
       }
-      .sp-main-img {
+
+      .sp-bg {
         width: 100%;
         height: auto;
         display: block;
       }
 
+      /* スマホ用ボタン位置（sumaho一覧.pngのボタンデザイン部分にピッタリ配置） */
       .sp-btn-wrapper {
         position: absolute;
-        left: 5%;
-        bottom: 8%;
-        width: 90%;
+        left: 3.2%;
+        bottom: 23.2%;
+        width: 93.6%;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
         z-index: 10;
       }
 
       .sp-btn-link {
         width: 100%;
         display: block;
-        text-decoration: none;
       }
+
       .sp-btn-img {
         width: 100%;
         height: auto;
         display: block;
-        pointer-events: none;
       }
-
-      .sp-features { margin-bottom: 25px; }
-      .sp-feat-card {
-        background: #f8faf9;
-        border-radius: 10px;
-        padding: 12px;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-align: left;
-      }
-      .sp-feat-card span { font-size: 20px; }
-      .sp-feat-card b { color: #00703c; font-size: 15px; }
-      .sp-feat-card p { font-size: 12px; color: #666; }
-
-      .sp-stats {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        margin-bottom: 30px;
-      }
-      .sp-stat-card {
-        background: #fff;
-        border: 1px solid #eee;
-        border-radius: 10px;
-        padding: 15px 5px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      }
-      .sp-stat-card span { font-size: 11px; display: block; margin-bottom: 5px; font-weight: bold; }
-      .sp-stat-card b { font-size: 18px; color: #00703c; }
-
-      .sp-footer { font-size: 13px; font-weight: bold; color: #666; padding-bottom: 30px; }
     }
   </style>
 </head>
 <body>
 
   <div class="pc-only pc-container">
-    <img src="kore1.png" alt="PC背景" class="pc-bg">
+    <img src="kore1.png" alt="株式会社アメックス 採用LP" class="pc-bg">
     <div class="pc-btn-wrapper">
       <a href="#" class="btn-link" target="_blank" rel="noopener noreferrer"><img src="Lin.png" alt="LINEで会社見学予約" class="btn-img"></a>
       <a href="#" class="btn-link" target="_blank" rel="noopener noreferrer"><img src="indeed.png" alt="Indeedから応募する" class="btn-img"></a>
     </div>
   </div>
 
-  <div class="mobile-only sp-lp">
-    <div class="sp-header">
-      <img src="https://github.com/tyuge1022-hash/amecs-lp/blob/main/YTgazou.png?raw=true" alt="ロゴマーク" style="width:30px; height:auto;"> <span class="sp-logo-text">AMECS</span>
+  <div class="mobile-only sp-container">
+    <img src="sumaho一覧.png" alt="株式会社アメックス 採用LP" class="sp-bg">
+    <div class="sp-btn-wrapper">
+      <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer"><img src="Lin.png" alt="LINEで会社見学予約" class="sp-btn-img"></a>
+      <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer"><img src="indeed.png" alt="Indeedから応募する" class="sp-btn-img"></a>
     </div>
-
-    <span class="sp-badge">\ 創業 65 年 /</span>
-    <h1 class="sp-title">
-      宮崎の街の快適な<br>
-      <span>生活を創造</span>し、<br>
-      <span>社会に貢献</span>する。
-    </h1>
-    <p class="sp-desc">
-      公共施設から一般住宅まで、<br>
-      地域のライフラインを支え続ける総合設備会社です。
-    </p>
-
-    <div class="sp-main-img-container">
-      <img src="7BD93500-5E22-4A97-BD2F-6C36B132458F.jpg" class="sp-main-img" alt="現場写真">
-      
-      <div class="sp-btn-wrapper">
-        <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer">
-          <img src="Lin.png" alt="LINEで会社見学予約" class="sp-btn-img">
-        </a>
-        <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer">
-          <img src="indeed.png" alt="Indeedから応募する" class="sp-btn-img">
-        </a>
-      </div>
-    </div>
-
-    <div class="sp-features">
-      <div class="sp-feat-card">
-        <span>🔰</span>
-        <div><b>未経験歓迎</b><p>先輩が丁寧にサポートします！</p></div>
-      </div>
-      <div class="sp-feat-card">
-        <span>🛠️</span>
-        <div><b>資格取得支援</b><p>必要な資格は会社がサポート！</p></div>
-      </div>
-      <div class="sp-feat-card">
-        <span>👥</span>
-        <div><b>働きやすい環境</b><p>年間休日123日＆完全週休2日制！</p></div>
-      </div>
-    </div>
-
-    <div class="sp-stats">
-      <div class="sp-stat-card"><span>年間休日</span><b>123日</b></div>
-      <div class="sp-stat-card"><span>完全週休</span><b>2日制</b></div>
-      <div class="sp-stat-card"><span>採用</span><b>未経験歓迎</b></div>
-      <div class="sp-stat-card"><span>制度</span><b>資格取得支援</b></div>
-    </div>
-
-    <p class="sp-footer">＼ ご質問・ご相談もお気軽にどうぞ！ ／</p>
   </div>
 
 </body>
