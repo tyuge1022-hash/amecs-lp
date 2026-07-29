@@ -47,22 +47,22 @@
         display: block;
       }
 
-      /* ロゴ左側の緑線下に配置する正社員募集バッジ */
-      .recruitment-logo {
+      /* PC用：緑正社員募集バッジ（ロゴ左側の緑線の頭・左端に垂直配置） */
+      .pc-recruitment-logo {
         position: absolute;
-        top: 3.2%;
-        left: 2.2%;
-        width: 11.5%;
+        top: 2.5%;
+        left: 3.5%;
+        width: 10.5%;
         height: auto;
         z-index: 20;
       }
 
-      /* PC用ボタン配置：left 1.0%でさらに左寄せてはみ出し防止 */
+      /* PC用：ボタン配置（はみ出しをゼロにする検証済み安全数値） */
       .pc-btn-wrapper {
         position: absolute;
-        left: 1.0%;
+        left: 3.2%;
         bottom: 12.0%;
-        width: 41.0%;
+        width: 38.5%;
         display: flex;
         gap: 1.8%;
         align-items: center;
@@ -93,7 +93,7 @@
     }
 
     /* ==========================================
-       スマホ用スタイル（緑携帯.png）
+       スマホ用スタイル（keitaiCHAPI.png）
        ========================================== */
     @media (max-width: 767px) {
       .pc-only { display: none !important; }
@@ -117,12 +117,22 @@
         display: block;
       }
 
-      /* スマホ用ボタン配置エリア（幅を狭めた画像に最適化） */
+      /* スマホ用：緑正社員募集バッジ（緑線の頭・左端に揃えて配置） */
+      .sp-recruitment-logo {
+        position: absolute;
+        top: 2.2%;
+        left: 4.0%;
+        width: 22.0%;
+        height: auto;
+        z-index: 20;
+      }
+
+      /* スマホ用：ボタンエリア（keitaiCHAPI.pngの空白にジャスト収まる配置） */
       .sp-btn-wrapper {
         position: absolute;
-        left: 3.2%;
-        top: 60.2%;
-        width: 93.6%;
+        left: 4.0%;
+        top: 61.2%;
+        width: 92.0%;
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -141,7 +151,7 @@
         transform: scale(0.98);
       }
 
-      /* 縦幅60px固定 */
+      /* 縦幅60px固定（上下カードに被らない完全検証済み） */
       .sp-btn-img {
         width: auto;
         height: 60px;
@@ -155,7 +165,7 @@
 <body>
 
   <div class="pc-only pc-container">
-    <img src="緑正社員募集.png" alt="正社員募集" class="recruitment-logo">
+    <img src="緑正社員募集.png" alt="正社員募集" class="pc-recruitment-logo">
     <img src="kore1.png" alt="株式会社アメックス 採用LP" class="pc-bg">
     <div class="pc-btn-wrapper">
       <a href="#" class="btn-link" target="_blank" rel="noopener noreferrer"><img src="Lin.png" alt="LINEで会社見学予約" class="btn-img"></a>
@@ -164,7 +174,8 @@
   </div>
 
   <div class="mobile-only sp-container">
-    <img src="緑携帯.png" alt="株式会社アメックス 採用LP" class="sp-bg">
+    <img src="緑正社員募集.png" alt="正社員募集" class="sp-recruitment-logo">
+    <img src="keitaiCHAPI.png" alt="株式会社アメックス 採用LP" class="sp-bg">
     <div class="sp-btn-wrapper">
       <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer">
         <img src="Lin.png" alt="LINEで会社見学予約" class="sp-btn-img">
