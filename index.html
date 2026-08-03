@@ -9,7 +9,7 @@
     body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; background-color: #f8f9fa; color: #333; }
 
     /* ==========================================
-       PC用スタイル (kore1.pngベース ＋ SNSブロック完璧同期)
+       PC用スタイル (kore1.pngベース)
        ========================================== */
     @media (min-width: 768px) {
       .mobile-only { display: none !important; }
@@ -33,9 +33,8 @@
       .btn-link:active { transform: translateY(1px) scale(0.98); }
       .btn-img { width: 82%; height: auto; display: block; margin: 0 auto; pointer-events: none; }
 
-      /* PC版 SNSブロック（ファーストビューの横幅に綺麗に合わせる） */
       .pc-sns-section {
-        width: calc(100vh * (1920 / 1080) * 0.94); /* メインビジュアルとほぼ同じ幅感に調整 */
+        width: calc(100vh * (1920 / 1080) * 0.94);
         max-width: 95vw;
         margin: 30px auto 0 auto;
         display: flex;
@@ -54,49 +53,63 @@
         box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       }
       .pc-sns-link-left {
-        position: absolute;
-        top: 0; left: 0; width: 50%; height: 100%; display: block; z-index: 12;
+        position: absolute; top: 0; left: 0; width: 50%; height: 100%; display: block; z-index: 12;
       }
       .pc-sns-link-right {
-        position: absolute;
-        top: 0; right: 0; width: 50%; height: 100%; display: block; z-index: 12;
+        position: absolute; top: 0; right: 0; width: 50%; height: 100%; display: block; z-index: 12;
       }
     }
 
     /* ==========================================
-       スマホ用スタイル
+       スマホ用スタイル（完全ノーペイン・ブロック積層方式）
        ========================================== */
     @media (max-width: 767px) {
       .pc-only { display: none !important; }
       body { overflow-y: auto; overflow-x: hidden; background-color: #f8f9fa; }
-      .sp-container { position: relative; width: 100vw; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+      
+      .sp-container { 
+        width: 100vw; 
+        max-width: 100%; 
+        margin: 0 auto; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+      }
+      
       .sp-bg { width: 100%; height: auto; display: block; }
 
-      /* LINE・Indeedボタン（位置完全固定） */
+      /* LINE・Indeedボタン：絶対配置を廃止し、画像の下に自然に配置します */
       .sp-btn-wrapper {
-        position: absolute;
         width: 90.0%;
-        top: 67.5%;
-        left: 5.0%;
+        margin: -12% auto 20px auto; /* メイン画像の最下部に綺麗に重ねるマイナス調整 */
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        gap: 6px;
+        position: relative;
         z-index: 10;
       }
-      .sp-btn-link { width: 100%; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: transform 0.15s ease; }
+      
+      .sp-btn-link { 
+        width: 100%; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        text-decoration: none; 
+        transition: transform 0.15s ease; 
+      }
       .sp-btn-link:active { transform: scale(0.98); }
 
       .sp-btn-img {
         width: 100%;
-        height: 38px;
+        height: 42px;
         object-fit: contain;
         display: block;
       }
 
-      /* スマホ版 SNS画像ブロック */
+      /* スマホ版 SNS画像ブロック（ボタンの下に続く形で配置） */
       .sns-block-wrapper {
         width: 90.0%;
-        margin: 20px auto 40px auto;
+        margin: 10px auto 40px auto;
         position: relative;
         display: block;
         z-index: 10;
@@ -111,13 +124,11 @@
       }
 
       .sns-link-left {
-        position: absolute;
-        top: 0; left: 0; width: 50%; height: 100%; display: block; z-index: 12;
+        position: absolute; top: 0; left: 0; width: 50%; height: 100%; display: block; z-index: 12;
       }
 
       .sns-link-right {
-        position: absolute;
-        top: 0; right: 0; width: 50%; height: 100%; display: block; z-index: 12;
+        position: absolute; top: 0; right: 0; width: 50%; height: 100%; display: block; z-index: 12;
       }
     }
   </style>
@@ -145,6 +156,7 @@
 
   <div class="mobile-only sp-container">
     <img src="ラストピース.png" alt="株式会社アメックス 採用LP" class="sp-bg">
+    
     <div class="sp-btn-wrapper">
       <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer">
         <img src="Lin.png" alt="LINEで会社見学予約" class="sp-btn-img">
