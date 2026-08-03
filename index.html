@@ -26,7 +26,7 @@
     }
 
     /* ==========================================
-       スマホ用スタイル (ラストピース.png 使用)
+       スマホ用スタイル (ラストピース.png ＋ SNSセクション)
        ========================================== */
     @media (max-width: 767px) {
       .pc-only { display: none !important; }
@@ -38,22 +38,64 @@
       .sp-btn-wrapper {
         position: absolute;
         width: 90.0%;
-        top: 67.5%;    /* 上下のカードの真ん中にしっかり収まる位置 */
+        top: 67.5%;
         left: 5.0%;
         display: flex;
         flex-direction: column;
-        gap: 2px;      /* ボタン同士の間隔 */
+        gap: 2px;
         z-index: 10;
       }
       .sp-btn-link { width: 100%; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: transform 0.15s ease; }
       .sp-btn-link:active { transform: scale(0.98); }
 
-      /* 【修正】文字やロゴの変形を防ぎつつ、高さをスリムに制限 */
       .sp-btn-img {
         width: 100%;
-        height: 38px;         /* 縦幅をスリムに固定 */
-        object-fit: contain;  /* 画像の比率を正常に保持（文字の引き伸ばし・肥大化を防止） */
+        height: 38px;
+        object-fit: contain;
         display: block;
+      }
+
+      /* ==========================================
+         【新設】SNS画像ブロック（左右独立リンク）
+         ========================================== */
+      .sns-block-wrapper {
+        width: 90.0%;            /* 上のボタンと同じ幅90%でツライチに配置 */
+        margin: 20px auto 40px auto; /* 上下の余白 */
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+      }
+
+      .sns-base-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      }
+
+      /* 左半分（Instagram用リンク領域） */
+      .sns-link-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        display: block;
+        z-index: 12;
+      }
+
+      /* 右半分（YouTube用リンク領域） */
+      .sns-link-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        display: block;
+        z-index: 12;
       }
     }
   </style>
@@ -78,6 +120,12 @@
       <a href="#" class="sp-btn-link" target="_blank" rel="noopener noreferrer">
         <img src="indeed.png" alt="Indeedから応募する" class="sp-btn-img">
       </a>
+    </div>
+
+    <div class="sns-block-wrapper">
+      <img src="AMECS-Instagram-YouTubeInstagram.png" alt="Instagram & YouTube" class="sns-base-img">
+      <a href="https://instagram.com" class="sns-link-left" target="_blank" rel="noopener noreferrer" aria-label="Instagramへ"></a>
+      <a href="https://youtu.be/az3GOuyHM08?si=cJM03v4hFrWvqj8o" class="sns-link-right" target="_blank" rel="noopener noreferrer" aria-label="YouTubeへ"></a>
     </div>
   </div>
 
