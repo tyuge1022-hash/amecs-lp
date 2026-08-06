@@ -7,36 +7,36 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #f8f9fa;
+      background-color: #1a1a1a;
       color: #333;
       font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
       overflow-x: hidden;
     }
 
-    /* LP全体のコンテナ：中央に配置し、綺麗な幅に収める */
+    /* レスポンシブ対応のLPコンテナ */
     .lp-container {
       width: 100%;
-      max-width: 800px;
+      max-width: 500px;
       margin: 0 auto;
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
-    /* 画像基本設定：横幅いっぱい、高さ自動調整で絶対崩さない */
+    /* スマホでは画面幅いっぱい、PC等では最大500pxに自動調整 */
     .lp-image {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    /* 各セクションの共通箱 */
     .lp-section {
       position: relative;
       width: 100%;
     }
 
-    /* 【1段目】LINE INDEED.png のリンク設定 */
+    /* 一番上：LINE INDEED.png のリンク設定 */
     .btn-line-link {
       position: absolute;
       top: 5%;
@@ -56,7 +56,7 @@
       display: block;
     }
 
-    /* 【3段目】社長.png の左右分割リンク設定 */
+    /* 最終段：社長.png の左右分割リンク設定 */
     .sns-instagram-link {
       position: absolute;
       top: 0;
@@ -83,10 +83,8 @@
 
     <div class="lp-section">
       <img src="LINE INDEED.png" alt="LINE・Indeed 応募ボタン" class="lp-image">
-      
-      <a href="https://lin.ee/reF3WAE" class="btn-line-link" target="_blank" rel="noopener noreferrer"></a>
-
-      <a href="#" class="btn-indeed-link" target="_blank" rel="noopener noreferrer"></a>
+      <a href="https://lin.ee/reF3WAE" class="btn-line-link" target="_blank" rel="noopener noreferrer" aria-label="LINEで会社見学予約"></a>
+      <a href="#" class="btn-indeed-link" target="_blank" rel="noopener noreferrer" aria-label="Indeedから応募する"></a>
     </div>
 
     <div class="lp-section">
@@ -95,10 +93,8 @@
 
     <div class="lp-section">
       <img src="社長.png" alt="Instagram & YouTube" class="lp-image">
-      
-      <a href="https://www.instagram.com/ameces0801?igsh=MWIyd2N6ZjdmeW85Yg%3D%3D&utm_source=qr" class="sns-instagram-link" target="_blank" rel="noopener noreferrer"></a>
-      
-      <a href="https://youtu.be/az3GOuyHM08" class="sns-youtube-link" target="_blank" rel="noopener noreferrer"></a>
+      <a href="https://www.instagram.com/ameces0801?igsh=MWIyd2N6ZjdmeW85Yg%3D%3D&utm_source=qr" class="sns-instagram-link" target="_blank" rel="noopener noreferrer" aria-label="Instagramへ"></a>
+      <a href="https://youtu.be/az3GOuyHM08" class="sns-youtube-link" target="_blank" rel="noopener noreferrer" aria-label="YouTubeへ"></a>
     </div>
 
   </div>
