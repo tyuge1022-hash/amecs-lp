@@ -11,33 +11,33 @@
       color: #333;
       font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
       overflow-x: hidden;
-      padding-top: 8px; /* スマホ・PC共通で上部に8pxの余白を入れる */
     }
 
-    /* レスポンシブ対応のLPコンテナ */
+    /* LP全体のコンテナ：一番上に8pxの余白をとり、スマホ幅500pxに固定して画質荒れを防ぐ */
     .lp-container {
       width: 100%;
       max-width: 500px;
-      margin: 0 auto;
+      margin: 8px auto 0 auto; /* ここで一番上に8pxの余白を設定 */
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
-    /* スマホでは画面幅いっぱい、PC等では最大500pxに自動調整 */
+    /* 画像基本設定 */
     .lp-image {
       width: 100%;
       height: auto;
       display: block;
     }
 
+    /* 各セクションの共通箱 */
     .lp-section {
       position: relative;
       width: 100%;
     }
 
-    /* 一番上：LINE INDEED.png のリンク設定 */
+    /* 【1段目】LINE INDEED.png のリンク設定 */
     .btn-line-link {
       position: absolute;
       top: 5%;
@@ -57,7 +57,7 @@
       display: block;
     }
 
-    /* 最終段：社長.png の左右分割リンク設定 */
+    /* 【3段目】社長.png の左右分割リンク設定 */
     .sns-instagram-link {
       position: absolute;
       top: 0;
@@ -84,7 +84,9 @@
 
     <div class="lp-section">
       <img src="LINE INDEED.png" alt="LINE・Indeed 応募ボタン" class="lp-image">
+      
       <a href="https://lin.ee/reF3WAE" class="btn-line-link" target="_blank" rel="noopener noreferrer" aria-label="LINEで会社見学予約"></a>
+
       <a href="#" class="btn-indeed-link" target="_blank" rel="noopener noreferrer" aria-label="Indeedから応募する"></a>
     </div>
 
@@ -94,7 +96,9 @@
 
     <div class="lp-section">
       <img src="社長.png" alt="Instagram & YouTube" class="lp-image">
+      
       <a href="https://www.instagram.com/ameces0801?igsh=MWIyd2N6ZjdmeW85Yg%3D%3D&utm_source=qr" class="sns-instagram-link" target="_blank" rel="noopener noreferrer" aria-label="Instagramへ"></a>
+      
       <a href="https://youtu.be/az3GOuyHM08" class="sns-youtube-link" target="_blank" rel="noopener noreferrer" aria-label="YouTubeへ"></a>
     </div>
 
