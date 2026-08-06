@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>株式会社アメックス | 採用情報</title>
   <style>
-    /* ==========================================
-       リセット＆全体レイアウト
-       ========================================== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background-color: #f8f9fa;
@@ -16,70 +13,50 @@
       overflow-x: hidden;
     }
 
-    /* LP全体のコンテナ：スマホでもPCでも中央に配置し、最大幅を制限して美しく見せる */
+    /* LP全体のコンテナ：中央に配置し、綺麗な幅に収める */
     .lp-container {
       width: 100%;
-      max-width: 800px; /* 画像がきれいに収まる基準幅 */
+      max-width: 800px;
       margin: 0 auto;
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
     }
 
-    /* 全ての画像を崩れず綺麗に縦並びにする基本設定 */
+    /* 画像基本設定：横幅いっぱい、高さ自動調整で絶対崩さない */
     .lp-image {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    /* ==========================================
-       1枚目・3枚目：通常の画像エリア
-       ========================================== */
-    .section-top, .section-bottom {
-      width: 100%;
+    /* 各セクションの共通箱 */
+    .lp-section {
       position: relative;
+      width: 100%;
     }
 
-    /* ==========================================
-       3枚目（LINE INDEED.png）：ボタンのリンクエリア
-       ========================================== */
-    .bottom-buttons-wrapper {
-      position: relative;
-      width: 100%;
-    }
-    
-    /* LINEボタン（上のボタン部分）のクリックエリア */
+    /* 【1段目】LINE INDEED.png のリンク設定 */
     .btn-line-link {
       position: absolute;
-      top: 12%;   /* 画像内のLINEボタンの位置に厳密に合わせる */
+      top: 5%;
       left: 5%;
       width: 90%;
-      height: 38%;
+      height: 42%;
       z-index: 10;
       display: block;
     }
-
-    /* Indeedボタン（下のボタン部分）のクリックエリア */
     .btn-indeed-link {
       position: absolute;
-      top: 55%;   /* 画像内のIndeedボタンの位置に厳密に合わせる */
+      top: 53%;
       left: 5%;
       width: 90%;
-      height: 38%;
+      height: 42%;
       z-index: 10;
       display: block;
     }
 
-    /* ==========================================
-       2枚目（社長.png）：SNS横並びブロック（左右分割）
-       ========================================== */
-    .sns-section {
-      position: relative;
-      width: 100%;
-    }
-
-    /* 左半分：Instagramリンク領域 */
+    /* 【3段目】社長.png の左右分割リンク設定 */
     .sns-instagram-link {
       position: absolute;
       top: 0;
@@ -89,8 +66,6 @@
       z-index: 10;
       display: block;
     }
-
-    /* 右半分：YouTubeリンク領域 */
     .sns-youtube-link {
       position: absolute;
       top: 0;
@@ -106,38 +81,24 @@
 
   <div class="lp-container">
 
-    <div class="section-top">
-      <img src="TOP.jpg" alt="株式会社アメックス 採用情報" class="lp-image">
-    </div>
-
-    <div class="sns-section">
-      <img src="社長.png" alt="Instagram & YouTube" class="lp-image">
-      <a href="https://www.instagram.com/ameces0801?igsh=MWIyd2N6ZjdmeW85Yg%3D%3D&utm_source=qr" 
-         class="sns-instagram-link" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         aria-label="Instagramへ"></a>
-      <a href="https://youtu.be/az3GOuyHM08" 
-         class="sns-youtube-link" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         aria-label="YouTubeへ"></a>
-    </div>
-
-    <div class="section-bottom bottom-buttons-wrapper">
+    <div class="lp-section">
       <img src="LINE INDEED.png" alt="LINE・Indeed 応募ボタン" class="lp-image">
       
-      <a href="https://lin.ee/reF3WAE" 
-         class="btn-line-link" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         aria-label="LINEで会社見学予約"></a>
+      <a href="https://lin.ee/reF3WAE" class="btn-line-link" target="_blank" rel="noopener noreferrer"></a>
 
-      <a href="#" 
-         class="btn-indeed-link" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         aria-label="Indeedから応募する"></a>
+      <a href="#" class="btn-indeed-link" target="_blank" rel="noopener noreferrer"></a>
+    </div>
+
+    <div class="lp-section">
+      <img src="TOP.png" alt="株式会社アメックス 採用情報" class="lp-image">
+    </div>
+
+    <div class="lp-section">
+      <img src="社長.png" alt="Instagram & YouTube" class="lp-image">
+      
+      <a href="https://www.instagram.com/ameces0801?igsh=MWIyd2N6ZjdmeW85Yg%3D%3D&utm_source=qr" class="sns-instagram-link" target="_blank" rel="noopener noreferrer"></a>
+      
+      <a href="https://youtu.be/az3GOuyHM08" class="sns-youtube-link" target="_blank" rel="noopener noreferrer"></a>
     </div>
 
   </div>
