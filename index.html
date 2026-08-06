@@ -11,13 +11,16 @@
       color: #333;
       font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
       overflow-x: hidden;
+      /* body全体にしっかりと上下の余白を持たせることで、一番上に確実な隙間を作ります */
+      padding-top: 8px;
+      padding-bottom: 20px;
     }
 
-    /* LP全体のコンテナ：一番上に8pxの余白をとり、スマホ幅500pxに固定して画質荒れを防ぐ */
+    /* LP全体のコンテナ：スマホ幅500pxに固定して画質荒れを防ぐ */
     .lp-container {
       width: 100%;
       max-width: 500px;
-      margin: 8px auto 0 auto; /* ここで一番上に8pxの余白を設定 */
+      margin: 0 auto;
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
