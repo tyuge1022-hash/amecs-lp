@@ -11,23 +11,21 @@
       color: #333;
       font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
       overflow-x: hidden;
-      /* body全体にしっかりと上下の余白を持たせることで、一番上に確実な隙間を作ります */
       padding-top: 8px;
-      padding-bottom: 20px;
     }
 
-    /* LP全体のコンテナ：スマホ幅500pxに固定して画質荒れを防ぐ */
+    /* PCサイズ・解像度を完璧に守るLPコンテナ（500px固定） */
     .lp-container {
       width: 100%;
       max-width: 500px;
-      margin: 0 auto;
+      margin: 0 auto 20px auto;
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
-    /* 画像基本設定 */
+    /* 画像基本設定：絶対に引き伸ばさずクッキリ表示 */
     .lp-image {
       width: 100%;
       height: auto;
@@ -40,7 +38,7 @@
       width: 100%;
     }
 
-    /* 【1段目】LINE INDEED.png のリンク設定 */
+    /* 【一番上】line-indeed-buttons-500x80-top8.png のリンク設定 */
     .btn-line-link {
       position: absolute;
       top: 5%;
@@ -60,7 +58,7 @@
       display: block;
     }
 
-    /* 【3段目】社長.png の左右分割リンク設定 */
+    /* 【最終段】社長.png の左右分割リンク設定 */
     .sns-instagram-link {
       position: absolute;
       top: 0;
@@ -86,7 +84,7 @@
   <div class="lp-container">
 
     <div class="lp-section">
-      <img src="LINE INDEED.png" alt="LINE・Indeed 応募ボタン" class="lp-image">
+      <img src="line-indeed-buttons-500x80-top8.png" alt="LINE・Indeed 応募ボタン" class="lp-image">
       
       <a href="https://lin.ee/reF3WAE" class="btn-line-link" target="_blank" rel="noopener noreferrer" aria-label="LINEで会社見学予約"></a>
 
