@@ -37,7 +37,7 @@
       width: 100%;
     }
 
-    /* 【一番上】line-indeed-buttons-500x80-top8.png のリンク設定 */
+    /* 【1段目】LINE・Indeedボタンのリンク設定 */
     .btn-line-link {
       position: absolute;
       top: 5%;
@@ -53,6 +53,26 @@
       left: 5%;
       width: 90%;
       height: 42%;
+      z-index: 10;
+      display: block;
+    }
+
+    /* 【2段目：TOP.png内】募集職種の左右リンク設定 */
+    .link-worker {
+      position: absolute;
+      top: 10%;
+      left: 4%;
+      width: 44%;
+      height: 84%;
+      z-index: 10;
+      display: block;
+    }
+    .link-manager {
+      position: absolute;
+      top: 10%;
+      right: 4%;
+      width: 44%;
+      height: 84%;
       z-index: 10;
       display: block;
     }
@@ -90,6 +110,10 @@
 
     <div class="lp-section">
       <img src="TOP.png" alt="株式会社アメックス 採用情報" class="lp-image">
+      
+      <a href="worker.html" class="link-worker" aria-label="現場作業員の詳細を見る"></a>
+
+      <a href="manager.html" class="link-manager" aria-label="現場管理者の詳細を見る"></a>
     </div>
 
     <div class="lp-section">
