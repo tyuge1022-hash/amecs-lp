@@ -37,7 +37,7 @@
       width: 100%;
     }
 
-    /* 【1段目】LINE・Indeedボタンのリンク設定 */
+    /* 【1段目】line-indeed-buttons-500x80-top8.png のリンク設定 */
     .btn-line-link {
       position: absolute;
       top: 5%;
@@ -57,24 +57,26 @@
       display: block;
     }
 
-    /* 【2段目：TOP.png内】募集職種の左右リンク設定（位置を下に修正） */
+    /* 【2段目：TOP.png内】募集職種の左右リンク設定（位置と高さを再調整） */
     .link-worker {
       position: absolute;
-      top: 45%;
-      left: 4%;
-      width: 44%;
-      height: 52%;
+      top: 41%; /* 「現場作業員」の緑タグの少し上から開始 */
+      left: 3%;  /* 左の余白を少し調整 */
+      width: 46%; /* カードの幅に合わせて少し広く */
+      height: 56%; /* カードの下部（詳しく見るボタン）までカバー */
       z-index: 10;
       display: block;
+      /* border: 2px solid red; */ /* 枠線デバッグ用：確認できたら消してください */
     }
     .link-manager {
       position: absolute;
-      top: 45%;
-      right: 4%;
-      width: 44%;
-      height: 52%;
+      top: 41%; /* 「現場管理者」も同じ高さから */
+      right: 3%; /* 右の余白を少し調整 */
+      width: 46%;
+      height: 56%;
       z-index: 10;
       display: block;
+      /* border: 2px solid blue; */ /* 枠線デバッグ用：確認できたら消してください */
     }
 
     /* 【一番下】社長.png の左右分割リンク設定 */
