@@ -37,7 +37,7 @@
       width: 100%;
     }
 
-    /* 【1段目】LINE・Indeedボタン */
+    /* 【一番上】LINE・Indeedボタン（上下分割リンク） */
     .btn-line-link {
       position: absolute;
       top: 5%;
@@ -57,7 +57,24 @@
       display: block;
     }
 
-    /* 【一番下】社長.png の左右分割リンク */
+    /* 【募集職種カード部分：左右横並び＆個別リンク】 */
+    .jobs-container {
+      display: flex;
+      width: 100%;
+      background-color: #ffffff;
+    }
+    .job-card {
+      flex: 1;
+      display: block;
+      text-decoration: none;
+    }
+    .job-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 社長.png の左右分割リンク（Instagram / YouTube） */
     .sns-instagram-link {
       position: absolute;
       top: 0;
@@ -89,11 +106,20 @@
     </div>
 
     <div class="lp-section">
-      <img src="TOP.png" alt="株式会社アメックス 採用情報" class="lp-image">
+      <img src="TOP.png" alt="採用情報トップ" class="lp-image">
+    </div>
+
+    <div class="jobs-container">
+      <a href="worker.html" class="job-card" aria-label="現場作業員の詳細を見る">
+        <img src="amecs_上部2画像_500px.png" alt="現場作業員 募集要項" style="clip-path: inset(0 50% 0 0); width: 200%; margin-left: 0;">
+      </a>
+      <a href="manager.html" class="job-card" aria-label="現場管理者の詳細を見る">
+        <img src="amecs_上部2画像_500px.png" alt="現場管理者 募集要項" style="clip-path: inset(0 0 0 50%); width: 200%; margin-left: -100%;">
+      </a>
     </div>
 
     <div class="lp-section">
-      <img src="福利厚生.png" alt="福利厚生" class="lp-image">
+      <img src="amecs_3つの魅力以下_500px.png" alt="アメックスの魅力・福利厚生" class="lp-image">
     </div>
 
     <div class="lp-section">
